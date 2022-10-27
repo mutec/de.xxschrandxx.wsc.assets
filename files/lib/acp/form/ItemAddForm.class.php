@@ -133,7 +133,7 @@ class ItemAddForm extends AbstractFormBuilderForm
         ];
 
         if (INVENTORY_LEGACYID_ENABLED) {
-            \array_push($children, 
+            \array_push($children,
                 TextFormField::create('legacyID')
             );
         }
