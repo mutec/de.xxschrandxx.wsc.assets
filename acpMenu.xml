@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="https://www.woltlab.com"
+	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.woltlab.com https://www.woltlab.com/XSD/5.5/acpMenu.xsd">
+	<import>
+		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory">
+			<parent>wcf.acp.menu.link.configuration</parent>
+		</acpmenuitem>
+		<acpmenuitem name="wcf.acp.menu.link.management.inventory">
+			<parent>wcf.acp.menu.link.management</parent>
+		</acpmenuitem>
+		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.itemList">
+			<controller>wcf\acp\page\ItemListPage</controller>
+			<parent>wcf.acp.menu.link.configuration.inventory</parent>
+			<permissions>admin.inventory.canManage</permissions>
+		</acpmenuitem>
+		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.itemList.add">
+			<controller>wcf\acp\form\ItemAddForm</controller>
+			<parent>wcf.acp.menu.link.configuration.inventory.itemList</parent>
+			<permissions>admin.minecraft.canManage</permissions>
+			<icon>fa-plus</icon>
+		</acpmenuitem>
+		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.itemCategoryList">
+			<controller>wcf\acp\page\ItemCategoryListPage</controller>
+			<parent>wcf.acp.menu.link.configuration.inventory</parent>
+			<permissions>admin.inventory.canManage</permissions>
+		</acpmenuitem>
+		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.itemCategoryList.add">
+			<controller>wcf\acp\form\ItemCategoryAddForm</controller>
+			<parent>wcf.acp.menu.link.configuration.inventory.itemCategoryList</parent>
+			<permissions>admin.minecraft.canManage</permissions>
+			<icon>fa-plus</icon>
+		</acpmenuitem>
+		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.itemLocationList">
+			<controller>wcf\acp\page\ItemLocationListPage</controller>
+			<parent>wcf.acp.menu.link.configuration.inventory</parent>
+			<permissions>admin.inventory.canManage</permissions>
+		</acpmenuitem>
+		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.itemLocationList.add">
+			<controller>wcf\acp\form\ItemLocationAddForm</controller>
+			<parent>wcf.acp.menu.link.configuration.inventory.itemLocationList</parent>
+			<permissions>admin.minecraft.canManage</permissions>
+			<icon>fa-plus</icon>
+		</acpmenuitem>
+	</import>
+</data>
