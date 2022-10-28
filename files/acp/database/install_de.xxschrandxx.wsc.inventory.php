@@ -14,10 +14,12 @@ return [
     DatabaseTable::create('wcf1_inventory')
         ->columns([
             ObjectIdDatabaseTableColumn::create('itemID'),
-            ObjectIdDatabaseTableColumn::create('categoryID'),
+            NotNullInt10DatabaseTableColumn::create('categoryID'),
             VarcharDatabaseTableColumn::create('title')
                 ->length(20),
-            VarcharDatabaseTableColumn::create('legacyID'),
+            VarcharDatabaseTableColumn::create('legacyID')
+                ->length(50),
+            DefaultFalseBooleanDatabaseTableColumn::create('canBeBorrowed'),
             DefaultFalseBooleanDatabaseTableColumn::create('borrowed'),
             IntDatabaseTableColumn::create('locationID'),
             IntDatabaseTableColumn::create('userID'),

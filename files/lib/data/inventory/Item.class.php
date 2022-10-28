@@ -38,6 +38,15 @@ class Item extends DatabaseObject
     }
 
     /**
+     * Returns weather can be borrowed
+     * @return ?bool
+     */
+    public function canBeBorrowed()
+    {
+        return $this->canBeBorrowed;
+    }
+
+    /**
      * Returns weather borroewd
      * @return ?bool
      */

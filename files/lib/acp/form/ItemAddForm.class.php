@@ -49,9 +49,11 @@ class ItemAddForm extends AbstractFormBuilderForm
 
         // Read Categories
         $categories = [
-            'label' => WCF::getLanguage()->get('wcf.label.none'),
-            'value' => 0,
-            'depth' => 0
+            0 => [
+                'label' => WCF::getLanguage()->get('wcf.label.none'),
+                'value' => 0,
+                'depth' => 0
+            ]
         ];
         $itemCategoryList = new ItemCategoryList();
         $itemCategoryList->readObjects();
@@ -62,24 +64,28 @@ class ItemAddForm extends AbstractFormBuilderForm
         }
 
         // Read Users
-        $users = [
-            'label' => WCF::getLanguage()->get('wcf.label.none'),
-            'value' => 0,
-            'depth' => 0
+        $userOptions = [
+            0 => [
+                'label' => WCF::getLanguage()->get('wcf.label.none'),
+                'value' => 0,
+                'depth' => 0
+            ]
         ];
         $userList = new UserList();
         $userList->readObjects();
         /** @var \wcf\data\user\User[] */
         $users = $userList->getObjects();
         foreach ($users as $user) {
-            \array_push($users, ['label' => $user->getTitle(), 'value' => $user->getObjectID(), 'depth' => 0]);
+            \array_push($userOptions, ['label' => $user->getTitle(), 'value' => $user->getObjectID(), 'depth' => 0]);
         }
 
         // Read Locations
         $locations = [
-            'label' => WCF::getLanguage()->get('wcf.label.none'),
-            'value' => 0,
-            'depth' => 0
+            0 => [
+                'label' => WCF::getLanguage()->get('wcf.label.none'),
+                'value' => 0,
+                'depth' => 0
+            ]
         ];
         $itemLocationList = new ItemLocationList();
         $itemLocationList->readObjects();
@@ -89,7 +95,16 @@ class ItemAddForm extends AbstractFormBuilderForm
             \array_push($locations, ['label' => $itemLocation->getTitle(), 'value' => $itemLocation->getObjectID(), 'depth' => 0]);
         }
 
-        $borroewdFormField = BooleanFormField::create('borrowed');
+        $canBeBorrowedFormField = BooleanFormField::create('canBeBorrowed')
+            ->label('wcf.acp.form.item.field.canBeBorrowed')
+            ->required();
+        $borroewdFormField = BooleanFormField::create('borrowed')
+            ->label('wcf.acp.form.item.field.borroewd')
+            ->addDependency(
+                NonEmptyFormFieldDependency::create('canBeBorrowed')
+                ->field($canBeBorrowedFormField)
+            )
+            ->required();
 
         $children = [
             TitleFormField::create()
@@ -97,7 +112,8 @@ class ItemAddForm extends AbstractFormBuilderForm
                 ->maximumLength(20)
                 ->required(),
             SingleSelectionFormField::create('categoryID')
-                ->options($categories)
+                ->label('wcf.acp.form.item.field.categoryID')
+                ->options($categories, true, false)
                 ->addValidator(new FormFieldValidator('checkCategoryID', function (SingleSelectionFormField $field) {
                     if ($field->getValue() === 0) {
                         throw new FormFieldValidationError(
@@ -106,18 +122,25 @@ class ItemAddForm extends AbstractFormBuilderForm
                         );
                     }
                 }))
-                ->addDependency(
-                    EmptyFormFieldDependency::create('borroewd')
-                        ->field($borroewdFormField)
-                )
                 ->required(),
+            $canBeBorrowedFormField,
             $borroewdFormField,
             SingleSelectionFormField::create('userID')
-                ->options($users)
+                ->label('wcf.acp.form.item.field.userID')
+                ->options($userOptions, true, false)
+                ->addDependency(
+                    NonEmptyFormFieldDependency::create('borrowed')
+                        ->field($borroewdFormField)
+                )
+                ->addDependency(
+                    NonEmptyFormFieldDependency::create('canBeBorrowed')
+                    ->field($canBeBorrowedFormField)
+                )
                 ->required(),
             SingleSelectionFormField::create('locationID')
-                ->options($locations)
-                ->addValidator(new FormFieldValidator('checkCategoryID', function (SingleSelectionFormField $field) {
+                ->label('wcf.acp.form.item.field.locationID')
+                ->options($locations, true, false)
+                ->addValidator(new FormFieldValidator('checkLocationID', function (SingleSelectionFormField $field) {
                     if ($field->getValue() === 0) {
                         throw new FormFieldValidationError(
                             'invalidValue',
@@ -126,7 +149,7 @@ class ItemAddForm extends AbstractFormBuilderForm
                     }
                 }))
                 ->addDependency(
-                    NonEmptyFormFieldDependency::create('borrowed')
+                    EmptyFormFieldDependency::create('borrowed')
                         ->field($borroewdFormField)
                 )
                 ->required()
