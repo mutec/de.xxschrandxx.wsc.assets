@@ -21,7 +21,7 @@ class ItemLocationListPage extends MultipleLinkPage
     /**
      * @inheritDoc
      */
-    public $activeMenuItem = 'wcf.acp.menu.link.configuration.inventory.itemLocationList';
+    public $activeMenuItem = 'wcf.acp.menu.link.configuration.inventory.item.location.list';
 
     /**
      * @inheritDoc

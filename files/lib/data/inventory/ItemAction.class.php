@@ -39,6 +39,9 @@ class ItemAction extends AbstractDatabaseObjectAction
         if (!isset($this->parameters['data']['creationDate'])) {
             $this->parameters['data']['creationDate'] = TIME_NOW;
         }
+        if (!isset($this->parameters['data']['lastModifiedDate'])) {
+            $this->parameters['data']['lastModifiedDate'] = TIME_NOW;
+        }
 
         parent::create();
     }

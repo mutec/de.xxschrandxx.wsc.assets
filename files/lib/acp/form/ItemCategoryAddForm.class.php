@@ -2,6 +2,7 @@
 
 namespace wcf\acp\form;
 
+use wcf\data\inventory\ItemCategoryAction;
 use wcf\form\AbstractFormBuilderForm;
 use wcf\system\form\builder\container\FormContainer;
 use wcf\system\form\builder\field\TextFormField;
@@ -18,12 +19,12 @@ class ItemCategoryAddForm extends AbstractFormBuilderForm
     /**
      * @inheritDoc
      */
-    public $activeMenuItem = 'wcf.acp.menu.link.configuration.inventory.itemList.add';
+    public $activeMenuItem = 'wcf.acp.menu.link.configuration.inventory.item.category.add';
 
     /**
      * @inheritDoc
      */
-    public $objectActionClass = ItemAction::class;
+    public $objectActionClass = ItemCategoryAction::class;
 
     /**
      * @inheritDoc

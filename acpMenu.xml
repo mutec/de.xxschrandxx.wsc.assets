@@ -8,38 +8,38 @@
 		<acpmenuitem name="wcf.acp.menu.link.management.inventory">
 			<parent>wcf.acp.menu.link.management</parent>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.itemList">
+		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.item.list">
 			<controller>wcf\acp\page\ItemListPage</controller>
 			<parent>wcf.acp.menu.link.configuration.inventory</parent>
 			<permissions>admin.inventory.canManage</permissions>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.itemList.add">
+		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.item.add">
 			<controller>wcf\acp\form\ItemAddForm</controller>
-			<parent>wcf.acp.menu.link.configuration.inventory.itemList</parent>
+			<parent>wcf.acp.menu.link.configuration.inventory.item.list</parent>
 			<permissions>admin.minecraft.canManage</permissions>
-			<icon>fa-plus</icon>
+			<icon>plus</icon>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.itemCategoryList">
+		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.item.category.list">
 			<controller>wcf\acp\page\ItemCategoryListPage</controller>
 			<parent>wcf.acp.menu.link.configuration.inventory</parent>
 			<permissions>admin.inventory.canManage</permissions>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.itemCategoryList.add">
+		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.item.category.add">
 			<controller>wcf\acp\form\ItemCategoryAddForm</controller>
-			<parent>wcf.acp.menu.link.configuration.inventory.itemCategoryList</parent>
+			<parent>wcf.acp.menu.link.configuration.inventory.item.category.list</parent>
 			<permissions>admin.minecraft.canManage</permissions>
-			<icon>fa-plus</icon>
+			<icon>plus</icon>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.itemLocationList">
+		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.item.location.list">
 			<controller>wcf\acp\page\ItemLocationListPage</controller>
 			<parent>wcf.acp.menu.link.configuration.inventory</parent>
 			<permissions>admin.inventory.canManage</permissions>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.itemLocationList.add">
+		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.item.location.add">
 			<controller>wcf\acp\form\ItemLocationAddForm</controller>
-			<parent>wcf.acp.menu.link.configuration.inventory.itemLocationList</parent>
+			<parent>wcf.acp.menu.link.configuration.inventory.item.location.list</parent>
 			<permissions>admin.minecraft.canManage</permissions>
-			<icon>fa-plus</icon>
+			<icon>plus</icon>
 		</acpmenuitem>
 	</import>
 </data>

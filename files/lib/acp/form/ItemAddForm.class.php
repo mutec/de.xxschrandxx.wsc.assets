@@ -2,6 +2,7 @@
 
 namespace wcf\acp\form;
 
+use wcf\data\inventory\ItemAction;
 use wcf\data\inventory\ItemCategoryList;
 use wcf\data\inventory\ItemLocationList;
 use wcf\data\user\UserList;
@@ -27,7 +28,7 @@ class ItemAddForm extends AbstractFormBuilderForm
     /**
      * @inheritDoc
      */
-    public $activeMenuItem = 'wcf.acp.menu.link.configuration.inventory.itemList.add';
+    public $activeMenuItem = 'wcf.acp.menu.link.configuration.inventory.item.add';
 
     /**
      * @inheritDoc
@@ -96,15 +97,13 @@ class ItemAddForm extends AbstractFormBuilderForm
         }
 
         $canBeBorrowedFormField = BooleanFormField::create('canBeBorrowed')
-            ->label('wcf.acp.form.item.field.canBeBorrowed')
-            ->required();
+            ->label('wcf.acp.form.item.field.canBeBorrowed');
         $borroewdFormField = BooleanFormField::create('borrowed')
             ->label('wcf.acp.form.item.field.borroewd')
             ->addDependency(
                 NonEmptyFormFieldDependency::create('canBeBorrowed')
-                ->field($canBeBorrowedFormField)
-            )
-            ->required();
+                    ->field($canBeBorrowedFormField)
+            );
 
         $children = [
             TitleFormField::create()
@@ -134,7 +133,7 @@ class ItemAddForm extends AbstractFormBuilderForm
                 )
                 ->addDependency(
                     NonEmptyFormFieldDependency::create('canBeBorrowed')
-                    ->field($canBeBorrowedFormField)
+                        ->field($canBeBorrowedFormField)
                 )
                 ->required(),
             SingleSelectionFormField::create('locationID')

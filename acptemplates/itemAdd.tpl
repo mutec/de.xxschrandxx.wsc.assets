@@ -1,4 +1,4 @@
-{include file='header' pageTitle='wcf.acp.form.item.formTitle.'|concat:$action}
+{include file='header'}
 
 <header class="contentHeader">
 	<div class="contentHeaderTitle">

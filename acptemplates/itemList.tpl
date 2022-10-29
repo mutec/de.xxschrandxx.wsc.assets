@@ -1,8 +1,8 @@
-{include file='header' pageTitle='wcf.acp.menu.link.configuration.inventory.itemList'}
+{include file='header'}
 
 <header class="contentHeader">
 	<div class="contentHeaderTitle">
-		<h1 class="contentTitle">{lang}wcf.acp.menu.link.configuration.inventory.itemList{/lang}</h1>
+		<h1 class="contentTitle">{lang}wcf.acp.page.itemList.title{/lang}</h1>
 	</div>
 
 	<nav class="contentHeaderNavigation">
@@ -10,7 +10,7 @@
 			<li>
 				<a href="{link controller='ItemAdd'}{/link}" class="button">
 					<span class="icon icon16 fa-plus"></span>
-				<span>{lang}wcf.acp.menu.link.configuration.inventory.itemList.add{/lang}</span>
+				<span>{lang}wcf.acp.menu.link.configuration.inventory.item.add{/lang}</span>
 				</a>
 			</li>
 			{event name='contentHeaderNavigation'}

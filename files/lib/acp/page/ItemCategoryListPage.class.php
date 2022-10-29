@@ -21,7 +21,7 @@ class ItemCategoryListPage extends MultipleLinkPage
     /**
      * @inheritDoc
      */
-    public $activeMenuItem = 'wcf.acp.menu.link.configuration.inventory.itemCategoryList';
+    public $activeMenuItem = 'wcf.acp.menu.link.configuration.inventory.item.category.list';
 
     /**
      * @inheritDoc

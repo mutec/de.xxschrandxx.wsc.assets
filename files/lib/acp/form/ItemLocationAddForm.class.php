@@ -19,7 +19,7 @@ class ItemLocationAddForm extends AbstractFormBuilderForm
     /**
      * @inheritDoc
      */
-    public $activeMenuItem = 'wcf.acp.menu.link.configuration.inventory.itemLocationList.add';
+    public $activeMenuItem = 'wcf.acp.menu.link.configuration.inventory.item.location.add';
 
     /**
      * @inheritDoc
