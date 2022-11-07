@@ -28,7 +28,7 @@ class ItemCategoryAddForm extends AbstractFormBuilderForm
 
     /**
      * @inheritDoc
-     * @var \wcf\data\inventory\Item
+     * @var \wcf\data\inventory\ItemCategory
      */
     public $formObject;
 
@@ -47,6 +47,7 @@ class ItemCategoryAddForm extends AbstractFormBuilderForm
                         ->maximumLength(20)
                         ->required(),
                     TextFormField::create('description')
+                        ->label('wcf.global.description')
                 ])
         );
     }

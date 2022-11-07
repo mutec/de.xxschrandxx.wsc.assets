@@ -28,6 +28,7 @@
 		<instruction type="file"/>
 		<instruction type="language"/>
 		<instruction type="acpMenu"/>
+		<instruction type="objectType"/>
 		<instruction type="userGroupOption"/>
 		<instruction type="option"/>
 		<instruction type="database">acp/database/install_de.xxschrandxx.wsc.inventory.php</instruction>

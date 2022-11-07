@@ -1,4 +1,4 @@
-{include file='header'}
+{include file='header' pageTitle="wcf.acp.page.itemList.title"}
 
 <header class="contentHeader">
 	<div class="contentHeaderTitle">
@@ -35,6 +35,7 @@
 					<th>{lang}wcf.global.objectID{/lang}</th>
 					<th>{lang}wcf.global.title{/lang}</th>
 					<th>{lang}wcf.acp.page.itemList.category{/lang}</th>
+					<th>{lang}wcf.acp.page.itemList.amount{/lang}</th>
 					<th>{lang}wcf.acp.page.itemList.location{/lang}</th>
 					<th>{lang}wcf.acp.page.itemList.creationDate{/lang}</th>
 				</tr>
@@ -56,10 +57,11 @@
 						{/if}
 						<td class="columnTitle">{$object->getTitle()}</td>
 						<td class="columnText">{$object->getCategory()->getTitle()}</td>
+						<td class="columnInt">{$object->getAmount()}</td>
 						{if $object->isBorrowed()}
-							<td class="columnUser">{user object=$object->getUser()}</td>
+							<td class="columnUser">{user object=$object->getUserProfile()}</td>
 						{else}
-							<td class="columnText">{user object=$object->getLocation()->getTitle()}</td>
+							<td class="columnText">{$object->getLocation()->getTitle()}</td>
 						{/if}
 						<td class="columnDate">{@$object->getCreatedTimestamp()|time}</td>
 					</tr>

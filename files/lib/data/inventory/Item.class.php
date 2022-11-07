@@ -6,6 +6,7 @@ use DateTime;
 use InvalidArgumentException;
 use wcf\data\DatabaseObject;
 use wcf\data\user\User;
+use wcf\data\user\UserProfile;
 
 class Item extends DatabaseObject
 {
@@ -29,12 +30,30 @@ class Item extends DatabaseObject
     }
 
     /**
+     * Returns description
+     * @return ?string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
      * Returns legacyID
      * @return ?string
      */
     public function getLegacyID()
     {
         return $this->legacyID;
+    }
+
+    /**
+     * Returns amount
+     * @return ?int
+     */
+    public function getAmount()
+    {
+        return $this->amount;
     }
 
     /**
@@ -99,6 +118,16 @@ class Item extends DatabaseObject
     public function getUser()
     {
         return new User($this->getUserID());
+    }
+
+    /**
+     * Returns user Profile
+     * @return ?UserProfile
+     * @throws InvalidArgumentException If the Item is not borrowed
+     */
+    public function getUserProfile()
+    {
+        return new UserProfile($this->getUser());
     }
 
     /**

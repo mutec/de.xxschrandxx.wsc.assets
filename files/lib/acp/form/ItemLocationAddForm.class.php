@@ -28,7 +28,7 @@ class ItemLocationAddForm extends AbstractFormBuilderForm
 
     /**
      * @inheritDoc
-     * @var \wcf\data\inventory\Item
+     * @var \wcf\data\inventory\ItemLocation
      */
     public $formObject;
 
@@ -47,6 +47,8 @@ class ItemLocationAddForm extends AbstractFormBuilderForm
                         ->maximumLength(20)
                         ->required(),
                     MultilineTextFormField::create('address')
+                        ->label('wcf.acp.form.itemLocation.field.address')
+                        ->description('wcf.acp.form.itemLocation.field.address.description')
                         ->required()
                 ])
         );

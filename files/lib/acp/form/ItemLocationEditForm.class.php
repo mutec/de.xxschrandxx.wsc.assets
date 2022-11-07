@@ -19,12 +19,12 @@ class ItemLocationEditForm extends ItemLocationAddForm
     {
         parent::readParameters();
 
-        $itemID = 0;
+        $locationID = 0;
         if (isset($_REQUEST['id'])) {
-            $itemID = (int)$_REQUEST['id'];
+            $locationID = (int)$_REQUEST['id'];
         }
-        $this->formObject = new ItemLocation($itemID);
-        if (!$this->formObject->itemID) {
+        $this->formObject = new ItemLocation($locationID);
+        if (!$this->formObject->locationID) {
             throw new IllegalLinkException();
         }
     }

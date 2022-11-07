@@ -2,7 +2,7 @@
 
 <header class="contentHeader">
 	<div class="contentHeaderTitle">
-		<h1 class="contentTitle">{lang}wcf.acp.form.item.formTitle.{$action}{/lang}</h1>
+		<h1 class="contentTitle">{lang}wcf.acp.form.item.title.{$action}{/lang}</h1>
 	</div>
 </header>
 

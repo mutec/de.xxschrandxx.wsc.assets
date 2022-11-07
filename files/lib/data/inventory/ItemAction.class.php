@@ -55,9 +55,24 @@ class ItemAction extends AbstractDatabaseObjectAction
 
         if (isset($this->parameters['data'])) {
             foreach ($this->getObjects() as $object) {
-                $object->update([
-                    'lastModifiedDate' => TIME_NOW
-                ]);
+                /** @var \wcf\data\inventory\Item */
+                $item = $object->getDecoratedObject();
+                if ($item->canBeBorrowed() && !$this->parameters['data']['canBeBorrowed']) {
+                    $object->update([
+                        'borrowed' => 0,
+                        'userID' => null,
+                        'lastModifiedDate' => TIME_NOW
+                    ]);
+                } else if ($item->isBorrowed() && !$this->parameters['data']['borrowed']) {
+                    $object->update([
+                        'userID' => null,
+                        'lastModifiedDate' => TIME_NOW
+                    ]);
+                } else {
+                    $object->update([
+                        'lastModifiedDate' => TIME_NOW
+                    ]);
+                }
             }
         }
     }

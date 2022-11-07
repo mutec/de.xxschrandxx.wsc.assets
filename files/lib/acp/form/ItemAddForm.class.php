@@ -4,18 +4,21 @@ namespace wcf\acp\form;
 
 use wcf\data\inventory\ItemAction;
 use wcf\data\inventory\ItemCategoryList;
+use wcf\data\inventory\ItemList;
 use wcf\data\inventory\ItemLocationList;
 use wcf\data\user\UserList;
 use wcf\form\AbstractFormBuilderForm;
 use wcf\system\form\builder\container\FormContainer;
+use wcf\system\form\builder\container\wysiwyg\WysiwygFormContainer;
 use wcf\system\form\builder\field\BooleanFormField;
-use wcf\system\form\builder\field\dependency\EmptyFormFieldDependency;
 use wcf\system\form\builder\field\dependency\NonEmptyFormFieldDependency;
+use wcf\system\form\builder\field\IntegerFormField;
 use wcf\system\form\builder\field\SingleSelectionFormField;
 use wcf\system\form\builder\field\TextFormField;
 use wcf\system\form\builder\field\TitleFormField;
 use wcf\system\form\builder\field\validation\FormFieldValidationError;
 use wcf\system\form\builder\field\validation\FormFieldValidator;
+use wcf\system\form\builder\field\wysiwyg\WysiwygFormField;
 use wcf\system\WCF;
 
 class ItemAddForm extends AbstractFormBuilderForm
@@ -99,13 +102,39 @@ class ItemAddForm extends AbstractFormBuilderForm
         $canBeBorrowedFormField = BooleanFormField::create('canBeBorrowed')
             ->label('wcf.acp.form.item.field.canBeBorrowed');
         $borroewdFormField = BooleanFormField::create('borrowed')
-            ->label('wcf.acp.form.item.field.borroewd')
+            ->label('wcf.acp.form.item.field.borrowed')
             ->addDependency(
                 NonEmptyFormFieldDependency::create('canBeBorrowed')
                     ->field($canBeBorrowedFormField)
             );
 
-        $children = [
+        if (INVENTORY_LEGACYID_ENABLED) {
+            $children = [
+                TextFormField::create('legacyID')
+                    ->label('wcf.acp.form.item.field.legacyID')
+                    ->description('wcf.acp.form.item.field.legacyID.description')
+                    ->minimumLength(1)
+                    ->addValidator(new FormFieldValidator('checkDuplicate', function (TextFormField $field) {
+                        if ($this->formAction === 'edit' && $this->formObject->getLegacyID() === $field->getValue()) {
+                            return;
+                        }
+                        $itemList = new ItemList();
+                        $itemList->getConditionBuilder()->add('legacyID = ?', [$field->getValue()]);
+                        if ($itemList->countObjects() !== 0) {
+                            $field->addValidationError(
+                                new FormFieldValidationError(
+                                    'duplicate',
+                                    'wcf.acp.form.item.field.legacyID.error.duplicate'
+                                )
+                            );
+                        }
+                    }))
+            ];
+        } else {
+            $children = [];
+        }
+    
+        \array_push($children,
             TitleFormField::create()
                 ->value('Default')
                 ->maximumLength(20)
@@ -114,13 +143,19 @@ class ItemAddForm extends AbstractFormBuilderForm
                 ->label('wcf.acp.form.item.field.categoryID')
                 ->options($categories, true, false)
                 ->addValidator(new FormFieldValidator('checkCategoryID', function (SingleSelectionFormField $field) {
-                    if ($field->getValue() === 0) {
-                        throw new FormFieldValidationError(
-                            'invalidValue',
-                            'wcf.global.form.error.noValidSelection'
+                    if ($field->getValue() === null || $field->getValue() === "0") {
+                        $field->addValidationError(
+                            new FormFieldValidationError(
+                                'invalidValue',
+                                'wcf.global.form.error.noValidSelection'
+                            )
                         );
                     }
                 }))
+                ->required(),
+            IntegerFormField::create('amount')
+                ->label('wcf.acp.form.item.field.amount')
+                ->minimum(1)
                 ->required(),
             $canBeBorrowedFormField,
             $borroewdFormField,
@@ -138,31 +173,28 @@ class ItemAddForm extends AbstractFormBuilderForm
                 ->required(),
             SingleSelectionFormField::create('locationID')
                 ->label('wcf.acp.form.item.field.locationID')
+                ->description('wcf.acp.form.item.field.locationID.description')
                 ->options($locations, true, false)
                 ->addValidator(new FormFieldValidator('checkLocationID', function (SingleSelectionFormField $field) {
-                    if ($field->getValue() === 0) {
-                        throw new FormFieldValidationError(
-                            'invalidValue',
-                            'wcf.global.form.error.noValidSelection'
+                    if ($field->getValue() === null || $field->getValue() === "0") {
+                        $field->addValidationError(
+                            new FormFieldValidationError(
+                                'invalidValue',
+                                'wcf.global.form.error.noValidSelection'
+                            )
                         );
                     }
                 }))
-                ->addDependency(
-                    EmptyFormFieldDependency::create('borrowed')
-                        ->field($borroewdFormField)
-                )
                 ->required()
-        ];
-
-        if (INVENTORY_LEGACYID_ENABLED) {
-            \array_push($children,
-                TextFormField::create('legacyID')
-            );
-        }
-
-        $this->form->appendChild(
-            FormContainer::create('data')
-                ->appendChildren($children)
         );
+
+        $this->form->appendChildren([
+            FormContainer::create('data')
+                ->appendChildren($children),
+            WysiwygFormContainer::create('description')
+                ->label('wcf.acp.form.item.field.description')
+                ->messageObjectType('de.xxschrandxx.wsc.inventory.item.description')
+                ->attachmentData('de.xxschrandxx.wsc.inventory.item.description.attachment'),
+        ]);
     }
 }

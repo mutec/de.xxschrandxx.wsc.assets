@@ -16,8 +16,8 @@
 		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.item.add">
 			<controller>wcf\acp\form\ItemAddForm</controller>
 			<parent>wcf.acp.menu.link.configuration.inventory.item.list</parent>
-			<permissions>admin.minecraft.canManage</permissions>
-			<icon>plus</icon>
+			<permissions>admin.inventory.canManage</permissions>
+			<icon>fa-plus</icon>
 		</acpmenuitem>
 		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.item.category.list">
 			<controller>wcf\acp\page\ItemCategoryListPage</controller>
@@ -27,8 +27,8 @@
 		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.item.category.add">
 			<controller>wcf\acp\form\ItemCategoryAddForm</controller>
 			<parent>wcf.acp.menu.link.configuration.inventory.item.category.list</parent>
-			<permissions>admin.minecraft.canManage</permissions>
-			<icon>plus</icon>
+			<permissions>admin.inventory.canManage</permissions>
+			<icon>fa-plus</icon>
 		</acpmenuitem>
 		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.item.location.list">
 			<controller>wcf\acp\page\ItemLocationListPage</controller>
@@ -38,8 +38,8 @@
 		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.item.location.add">
 			<controller>wcf\acp\form\ItemLocationAddForm</controller>
 			<parent>wcf.acp.menu.link.configuration.inventory.item.location.list</parent>
-			<permissions>admin.minecraft.canManage</permissions>
-			<icon>plus</icon>
+			<permissions>admin.inventory.canManage</permissions>
+			<icon>fa-plus</icon>
 		</acpmenuitem>
 	</import>
 </data>

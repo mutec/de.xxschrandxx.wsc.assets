@@ -34,6 +34,7 @@
 					<th></th>
 					<th>{lang}wcf.global.objectID{/lang}</th>
 					<th>{lang}wcf.global.title{/lang}</th>
+					<th>{lang}wcf.acp.page.itemLocationList.address{/lang}</th>
 					<th>{lang}wcf.acp.page.itemLocationList.creationDate{/lang}</th>
 				</tr>
 			</thead>
@@ -47,18 +48,9 @@
 							{objectAction action="delete" objectTitle=$object->getTitle()}
 							{event name='rowButtons'}
 						</td>
-						{if INVENTORY_LEGACYID_ENABLED}
-							<td class="columnID">{$object->getLegacyID()}</td>
-						{else}
-							<td class="columnID">{#$object->getObjectID()}</td>
-						{/if}
+						<td class="columnID">{#$object->getObjectID()}</td>
 						<td class="columnTitle">{$object->getTitle()}</td>
-						<td class="columnText">{$object->getCategory()->getTitle()}</td>
-						{if $object->isBorrowed()}
-							<td class="columnUser">{user object=$object->getUser()}</td>
-						{else}
-							<td class="columnText">{user object=$object->getLocation()->getTitle()}</td>
-						{/if}
+						<td class="columnText">{$object->getAddress()}</td>
 						<td class="columnDate">{@$object->getCreatedTimestamp()|time}</td>
 					</tr>
 				{/foreach}

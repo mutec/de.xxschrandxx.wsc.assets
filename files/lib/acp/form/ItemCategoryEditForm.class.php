@@ -19,12 +19,12 @@ class ItemCategoryEditForm extends ItemCategoryAddForm
     {
         parent::readParameters();
 
-        $itemID = 0;
+        $categoryID = 0;
         if (isset($_REQUEST['id'])) {
-            $itemID = (int)$_REQUEST['id'];
+            $categoryID = (int)$_REQUEST['id'];
         }
-        $this->formObject = new ItemCategory($itemID);
-        if (!$this->formObject->itemID) {
+        $this->formObject = new ItemCategory($categoryID);
+        if (!$this->formObject->categoryID) {
             throw new IllegalLinkException();
         }
     }
