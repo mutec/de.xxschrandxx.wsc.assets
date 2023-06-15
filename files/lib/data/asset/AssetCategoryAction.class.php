@@ -1,30 +1,30 @@
 <?php
 
-namespace wcf\data\inventory;
+namespace assets\data\asset;
 
 use wcf\data\AbstractDatabaseObjectAction;
 
-class ItemLocationAction extends AbstractDatabaseObjectAction
+class AssetCategoryAction extends AbstractDatabaseObjectAction
 {
     /**
      * @inheritDoc
      */
-    protected $className = ItemLocationEditor::class;
+    protected $className = AssetCategoryEditor::class;
 
     /**
      * @inheritDoc
      */
-    protected $permissionsCreate = ['admin.inventory.canManage'];
+    protected $permissionsCreate = ['admin.assets.canManage'];
 
     /**
      * @inheritDoc
      */
-    protected $permissionsDelete = ['admin.inventory.canManage'];
+    protected $permissionsDelete = ['admin.assets.canManage'];
 
     /**
      * @inheritDoc
      */
-    protected $permissionsUpdate = ['admin.inventory.canManage'];
+    protected $permissionsUpdate = ['admin.assets.canManage'];
 
     /**
      * @inheritDoc

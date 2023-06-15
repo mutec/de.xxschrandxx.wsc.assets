@@ -1,34 +1,33 @@
 <?php
 
-namespace wcf\acp\form;
+namespace assets\acp\form;
 
-use wcf\data\inventory\ItemLocationAction;
 use wcf\form\AbstractFormBuilderForm;
 use wcf\system\form\builder\container\FormContainer;
-use wcf\system\form\builder\field\MultilineTextFormField;
+use wcf\system\form\builder\field\TextFormField;
 use wcf\system\form\builder\field\TitleFormField;
 use wcf\system\WCF;
 
-class ItemLocationAddForm extends AbstractFormBuilderForm
+class AssetCategoryAddForm extends AbstractFormBuilderForm
 {
     /**
      * @inheritDoc
      */
-    public $neededPermissions = ['admin.inventory.canManage'];
+    public $neededPermissions = ['admin.assets.canManage'];
 
     /**
      * @inheritDoc
      */
-    public $activeMenuItem = 'wcf.acp.menu.link.configuration.inventory.item.location.add';
+    public $activeMenuItem = 'wcf.acp.menu.link.configuration.assets.asset.category.add';
 
     /**
      * @inheritDoc
      */
-    public $objectActionClass = ItemLocationAction::class;
+    public $objectActionClass = AssetCategoryAction::class;
 
     /**
      * @inheritDoc
-     * @var \wcf\data\inventory\ItemLocation
+     * @var \wcf\data\assets\AssetCategory
      */
     public $formObject;
 
@@ -46,10 +45,8 @@ class ItemLocationAddForm extends AbstractFormBuilderForm
                         ->value('Default')
                         ->maximumLength(20)
                         ->required(),
-                    MultilineTextFormField::create('address')
-                        ->label('wcf.acp.form.itemLocation.field.address')
-                        ->description('wcf.acp.form.itemLocation.field.address.description')
-                        ->required()
+                    TextFormField::create('description')
+                        ->label('wcf.global.description')
                 ])
         );
     }

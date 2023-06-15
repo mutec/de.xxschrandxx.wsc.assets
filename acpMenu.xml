@@ -2,43 +2,43 @@
 <data xmlns="https://www.woltlab.com"
 	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.woltlab.com https://www.woltlab.com/XSD/5.5/acpMenu.xsd">
 	<import>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory">
+		<acpmenuitem name="wcf.acp.menu.link.configuration.assets">
 			<parent>wcf.acp.menu.link.configuration</parent>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.management.inventory">
+		<acpmenuitem name="wcf.acp.menu.link.management.assets">
 			<parent>wcf.acp.menu.link.management</parent>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.item.list">
-			<controller>wcf\acp\page\ItemListPage</controller>
-			<parent>wcf.acp.menu.link.configuration.inventory</parent>
-			<permissions>admin.inventory.canManage</permissions>
+		<acpmenuitem name="wcf.acp.menu.link.configuration.assets.asset.list">
+			<controller>wcf\acp\page\AssetListPage</controller>
+			<parent>wcf.acp.menu.link.configuration.assets</parent>
+			<permissions>admin.assets.canManage</permissions>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.item.add">
-			<controller>wcf\acp\form\ItemAddForm</controller>
-			<parent>wcf.acp.menu.link.configuration.inventory.item.list</parent>
-			<permissions>admin.inventory.canManage</permissions>
+		<acpmenuitem name="wcf.acp.menu.link.configuration.assets.asset.add">
+			<controller>wcf\acp\form\AssetAddForm</controller>
+			<parent>wcf.acp.menu.link.configuration.assets.asset.list</parent>
+			<permissions>admin.assets.canManage</permissions>
 			<icon>fa-plus</icon>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.item.category.list">
-			<controller>wcf\acp\page\ItemCategoryListPage</controller>
-			<parent>wcf.acp.menu.link.configuration.inventory</parent>
-			<permissions>admin.inventory.canManage</permissions>
+		<acpmenuitem name="wcf.acp.menu.link.configuration.assets.asset.category.list">
+			<controller>wcf\acp\page\AssetCategoryListPage</controller>
+			<parent>wcf.acp.menu.link.configuration.assets</parent>
+			<permissions>admin.assets.canManage</permissions>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.item.category.add">
-			<controller>wcf\acp\form\ItemCategoryAddForm</controller>
-			<parent>wcf.acp.menu.link.configuration.inventory.item.category.list</parent>
-			<permissions>admin.inventory.canManage</permissions>
+		<acpmenuitem name="wcf.acp.menu.link.configuration.assets.asset.category.add">
+			<controller>wcf\acp\form\AssetCategoryAddForm</controller>
+			<parent>wcf.acp.menu.link.configuration.assets.asset.category.list</parent>
+			<permissions>admin.assets.canManage</permissions>
 			<icon>fa-plus</icon>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.item.location.list">
-			<controller>wcf\acp\page\ItemLocationListPage</controller>
-			<parent>wcf.acp.menu.link.configuration.inventory</parent>
-			<permissions>admin.inventory.canManage</permissions>
+		<acpmenuitem name="wcf.acp.menu.link.configuration.assets.asset.location.list">
+			<controller>wcf\acp\page\AssetLocationListPage</controller>
+			<parent>wcf.acp.menu.link.configuration.assets</parent>
+			<permissions>admin.assets.canManage</permissions>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.inventory.item.location.add">
-			<controller>wcf\acp\form\ItemLocationAddForm</controller>
-			<parent>wcf.acp.menu.link.configuration.inventory.item.location.list</parent>
-			<permissions>admin.inventory.canManage</permissions>
+		<acpmenuitem name="wcf.acp.menu.link.configuration.assets.asset.location.add">
+			<controller>wcf\acp\form\AssetLocationAddForm</controller>
+			<parent>wcf.acp.menu.link.configuration.assets.asset.location.list</parent>
+			<permissions>admin.assets.canManage</permissions>
 			<icon>fa-plus</icon>
 		</acpmenuitem>
 	</import>

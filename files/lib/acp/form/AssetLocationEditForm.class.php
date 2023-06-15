@@ -1,11 +1,11 @@
 <?php
 
-namespace wcf\acp\form;
+namespace assets\acp\form;
 
-use wcf\data\inventory\ItemCategory;
+use assets\data\asset\AssetLocation;
 use wcf\system\exception\IllegalLinkException;
 
-class ItemCategoryEditForm extends ItemCategoryAddForm
+class AssetLocationEditForm extends AssetLocationAddForm
 {
     /**
      * @inheritDoc
@@ -19,12 +19,12 @@ class ItemCategoryEditForm extends ItemCategoryAddForm
     {
         parent::readParameters();
 
-        $categoryID = 0;
+        $locationID = 0;
         if (isset($_REQUEST['id'])) {
-            $categoryID = (int)$_REQUEST['id'];
+            $locationID = (int)$_REQUEST['id'];
         }
-        $this->formObject = new ItemCategory($categoryID);
-        if (!$this->formObject->categoryID) {
+        $this->formObject = new AssetLocation($locationID);
+        if (!$this->formObject->locationID) {
             throw new IllegalLinkException();
         }
     }

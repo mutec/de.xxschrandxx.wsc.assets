@@ -3,13 +3,13 @@
 	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.woltlab.com https://www.woltlab.com/XSD/5.5/objectType.xsd">
 	<import>
 		<type>
-			<name>de.xxschrandxx.wsc.inventory.item.description</name>
+			<name>de.xxschrandxx.wsc.assets.asset.description</name>
 			<definitionname>com.woltlab.wcf.message</definitionname>
 		</type>
 		<type>
-			<name>de.xxschrandxx.wsc.inventory.item.description.attachment</name>
+			<name>de.xxschrandxx.wsc.assets.asset.description.attachment</name>
 			<definitionname>com.woltlab.wcf.attachment.objectType</definitionname>
-			<classname>wcf\system\attachment\ItemDescriptionAttachmentObjectType</classname>
+			<classname>wcf\system\attachment\AssetDescriptionAttachmentObjectType</classname>
 		</type>
 	</import>
 </data>

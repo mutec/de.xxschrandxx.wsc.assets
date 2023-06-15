@@ -1,8 +1,10 @@
 <?php
 
-namespace wcf\system\attachment;
+namespace assets\system\attachment;
 
-class ItemDescriptionAttachmentObjectType extends AbstractAttachmentObjectType
+use wcf\system\attachment\AbstractAttachmentObjectType;
+
+class AssetDescriptionAttachmentObjectType extends AbstractAttachmentObjectType
 {
     /**
      * @inheritDoc

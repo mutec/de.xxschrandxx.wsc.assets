@@ -1,30 +1,30 @@
 <?php
 
-namespace wcf\data\inventory;
+namespace assets\data\asset;
 
 use wcf\data\AbstractDatabaseObjectAction;
 
-class ItemAction extends AbstractDatabaseObjectAction
+class AssetAction extends AbstractDatabaseObjectAction
 {
     /**
      * @inheritDoc
      */
-    protected $className = ItemEditor::class;
+    protected $className = AssetEditor::class;
 
     /**
      * @inheritDoc
      */
-    protected $permissionsCreate = ['admin.inventory.canManage'];
+    protected $permissionsCreate = ['admin.assets.canManage'];
 
     /**
      * @inheritDoc
      */
-    protected $permissionsDelete = ['admin.inventory.canManage'];
+    protected $permissionsDelete = ['admin.assets.canManage'];
 
     /**
      * @inheritDoc
      */
-    protected $permissionsUpdate = ['admin.inventory.canManage'];
+    protected $permissionsUpdate = ['admin.assets.canManage'];
 
     /**
      * @inheritDoc
@@ -55,7 +55,7 @@ class ItemAction extends AbstractDatabaseObjectAction
 
         if (isset($this->parameters['data'])) {
             foreach ($this->getObjects() as $object) {
-                /** @var \wcf\data\inventory\Item */
+                /** @var \assets\data\asset\Asset */
                 $item = $object->getDecoratedObject();
                 if ($item->canBeBorrowed() && !$this->parameters['data']['canBeBorrowed']) {
                     $object->update([

@@ -1,12 +1,11 @@
 <?php
 
-namespace wcf\acp\page;
+namespace assets\acp\page;
 
-use wcf\data\inventory\ItemLocation;
-use wcf\data\inventory\ItemLocationList;
+use assets\data\asset\AssetLocation;
 use wcf\page\MultipleLinkPage;
 
-class ItemLocationListPage extends MultipleLinkPage
+class AssetLocationListPage extends MultipleLinkPage
 {
     /**
      * @inheritDoc
@@ -21,14 +20,14 @@ class ItemLocationListPage extends MultipleLinkPage
     /**
      * @inheritDoc
      */
-    public $activeMenuItem = 'wcf.acp.menu.link.configuration.inventory.item.location.list';
+    public $activeMenuItem = 'wcf.acp.menu.link.configuration.assets.asset.location.list';
 
     /**
      * @inheritDoc
      */
     public function __run()
     {
-        $this->sortField = ItemLocation::getDatabaseTableIndexName();
+        $this->sortField = AssetLocation::getDatabaseTableIndexName();
         parent::__run();
     }
 }

@@ -1,26 +1,25 @@
 <?php
 
-namespace wcf\acp\page;
+namespace assets\acp\page;
 
-use wcf\data\inventory\Item;
-use wcf\data\inventory\ItemCategoryList;
-use wcf\data\inventory\ItemList;
-use wcf\data\inventory\ItemLocationList;
+use assets\data\asset\AssetCategoryList;
+use assets\data\asset\AssetList;
+use assets\data\asset\AssetLocationList;
 use wcf\page\SortablePage;
 use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
 
-class ItemListPage extends SortablePage
+class AssetListPage extends SortablePage
 {
     /**
      * @inheritDoc
      */
-    public $activeMenuItem = 'wcf.acp.menu.link.configuration.inventory.item.list';
+    public $activeMenuItem = 'wcf.acp.menu.link.configuration.assets.asset.list';
 
     /**
      * @inheritDoc
      */
-    public $neededPermissions = ['admin.inventory.canManage'];
+    public $neededPermissions = ['admin.assets.canManage'];
 
     /**
      * @inheritDoc
@@ -30,12 +29,12 @@ class ItemListPage extends SortablePage
     /**
      * @inheritDoc
      */
-    public $validSortFields = ['itemID', 'categoryID', 'legacyID', 'lastModifiedDate', 'creationDate'];
+    public $validSortFields = ['assetID', 'categoryID', 'legacyID', 'lastModifiedDate', 'creationDate'];
 
     /**
      * @inheritDoc
      */
-    public $defaultSortField = INVENTORY_LEGACYID_ENABLED ? 'itemID' : 'legacyID';
+    public $defaultSortField = ASSETS_LEGACYID_ENABLED ? 'assetID' : 'legacyID';
 
     /**
      * @inheritDoc
@@ -61,7 +60,7 @@ class ItemListPage extends SortablePage
     public $availableUsers = [];
 
     /**
-     * search for borrowed items
+     * search for borrowed assets
      * @var ?bool
      */
     public $searchBorrowed = null;
@@ -83,7 +82,7 @@ class ItemListPage extends SortablePage
             $parameters['searchBorrowed'] = $this->searchBorrowed;
         }
 
-        $this->canonicalURL = LinkHandler::getInstance()->getLink('ItemList', $parameters);
+        $this->canonicalURL = LinkHandler::getInstance()->getLink('AssetList', $parameters);
     }
 
     /**
@@ -91,7 +90,7 @@ class ItemListPage extends SortablePage
      */
     protected function initObjectList()
     {
-        $this->objectList = new ItemList();
+        $this->objectList = new AssetList();
     }
 
     /**
@@ -100,14 +99,14 @@ class ItemListPage extends SortablePage
     public function readData()
     {
         // get categories
-        $itemCategoryList = new ItemCategoryList();
-        $itemCategoryList->readObjects();
-        $this->availableCategories = $itemCategoryList->getObjects();
+        $assetCategoryList = new AssetCategoryList();
+        $assetCategoryList->readObjects();
+        $this->availableCategories = $assetCategoryList->getObjects();
 
         // get locations
-        $itemLocationList = new ItemLocationList();
-        $itemLocationList->readObjects();
-        $this->availableLocations = $itemLocationList->getObjects();
+        $assetLocationList = new AssetLocationList();
+        $assetLocationList->readObjects();
+        $this->availableLocations = $assetLocationList->getObjects();
 
         // get users
         // TODO

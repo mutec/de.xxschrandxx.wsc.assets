@@ -1,16 +1,16 @@
 <?php
 
-namespace wcf\data\inventory;
+namespace assets\data\asset;
 
 use DateTime;
 use wcf\data\DatabaseObject;
 
-class ItemLocation extends DatabaseObject
+class AssetLocation extends DatabaseObject
 {
     /**
      * @inheritDoc
      */
-    protected static $databaseTableName = 'inventory_location';
+    protected static $databaseTableName = 'asset_location';
 
     /**
      * @inheritDoc

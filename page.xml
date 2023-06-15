@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/5.4/page.xsd">
+	<import>
+		<page identifier="de.xxschrandxx.wsc.assets">
+			<pageType>system</pageType>
+			<controller>assets\page\AssetListPage</controller>
+			<name language="de">Vermögenswerte</name>
+			<name language="en">Assets</name>
+			<allowSpidersToIndex>1</allowSpidersToIndex>
+			<content language="en">
+				<title>Assets</title>
+			</content>
+			<content language="de">
+				<title>Vermögenswerte</title>
+			</content>
+		</page>
+	</import>
+</data>

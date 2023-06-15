@@ -1,6 +1,6 @@
 <?php
 
-namespace wcf\data\inventory;
+namespace assets\data\asset;
 
 use DateTime;
 use InvalidArgumentException;
@@ -8,17 +8,17 @@ use wcf\data\DatabaseObject;
 use wcf\data\user\User;
 use wcf\data\user\UserProfile;
 
-class Item extends DatabaseObject
+class Asset extends DatabaseObject
 {
     /**
      * @inheritDoc
      */
-    protected static $databaseTableName = 'inventory';
+    protected static $databaseTableName = 'assets';
 
     /**
      * @inheritDoc
      */
-    protected static $databaseTableIndexName = 'itemID';
+    protected static $databaseTableIndexName = 'assetID';
 
     /**
      * Returns title
@@ -77,35 +77,35 @@ class Item extends DatabaseObject
     /**
      * Returns locationID
      * @return ?int
-     * @throws InvalidArgumentException If the Item is borrowed
+     * @throws InvalidArgumentException If the Asset is borrowed
      */
     public function getLocationID()
     {
         if ($this->isBorrowed()) {
-            throw new InvalidArgumentException('Item is borrowed.');
+            throw new InvalidArgumentException('Asset is borrowed.');
         }
         return $this->locationID;
     }
 
     /**
-     * Returns ItemLocation
-     * @return ?ItemLocation
-     * @throws InvalidArgumentException If the Item is borrowed
+     * Returns AssetLocation
+     * @return ?AssetLocation
+     * @throws InvalidArgumentException If the Asset is borrowed
      */
     public function getLocation()
     {
-        return new ItemLocation($this->getLocationID());
+        return new AssetLocation($this->getLocationID());
     }
 
     /**
      * Returns userID
      * @return ?int
-     * @throws InvalidArgumentException If the Item is not borrowed
+     * @throws InvalidArgumentException If the Asset is not borrowed
      */
     public function getUserID()
     {
         if (!$this->isBorrowed()) {
-            throw new InvalidArgumentException('Item is borrowed.');
+            throw new InvalidArgumentException('Asset is borrowed.');
         }
         return $this->userID;
     }
@@ -113,7 +113,7 @@ class Item extends DatabaseObject
     /**
      * Returns User
      * @return ?User
-     * @throws InvalidArgumentException If the Item is not borrowed
+     * @throws InvalidArgumentException If the Asset is not borrowed
      */
     public function getUser()
     {
@@ -123,7 +123,7 @@ class Item extends DatabaseObject
     /**
      * Returns user Profile
      * @return ?UserProfile
-     * @throws InvalidArgumentException If the Item is not borrowed
+     * @throws InvalidArgumentException If the Asset is not borrowed
      */
     public function getUserProfile()
     {
@@ -140,12 +140,12 @@ class Item extends DatabaseObject
     }
 
     /**
-     * Returns ItemCategory
-     * @return ?ItemCategory
+     * Returns AssetCategory
+     * @return ?AssetCategory
      */
     public function getCategory()
     {
-        return new ItemCategory($this->getCategoryID());
+        return new AssetCategory($this->getCategoryID());
     }
 
     /**

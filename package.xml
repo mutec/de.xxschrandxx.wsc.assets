@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package name="de.xxschrandxx.wsc.inventory"
+<package name="de.xxschrandxx.wsc.assets"
 	xmlns="https://www.woltlab.com"
 	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.woltlab.com https://www.woltlab.com/XSD/5.5/package.xsd">
 	<packageinformation>
-		<packagename><![CDATA[Inventory]]></packagename>
-		<packagename language="de"><![CDATA[Inventar]]></packagename>
-		<packagedescription><![CDATA[Inventory management plugin.]]></packagedescription>
-		<packagedescription language="de"><![CDATA[Plugin zum Managen von Inventaren.]]></packagedescription>
+		<packagename><![CDATA[Assets]]></packagename>
+		<packagename language="de"><![CDATA[Vermögenswerte]]></packagename>
+		<packagedescription><![CDATA[Asset management plugin.]]></packagedescription>
+		<packagedescription language="de"><![CDATA[Plugin zum Managen von Vermögenswerten.]]></packagedescription>
+		<isapplication>1</isapplication>
 		<version>1.0.0</version>
-		<date>2022-10-27</date>
+		<date>2023-06-15</date>
 	</packageinformation>
 
 	<authorinformation>
@@ -25,12 +26,15 @@
 
 	<instructions type="install">
 		<instruction type="acpTemplate"/>
+		<instruction type="template"/>
 		<instruction type="file"/>
 		<instruction type="language"/>
 		<instruction type="acpMenu"/>
+		<instruction type="page" />
+		<instruction type="menuItem" />
 		<instruction type="objectType"/>
 		<instruction type="userGroupOption"/>
 		<instruction type="option"/>
-		<instruction type="database">acp/database/install_de.xxschrandxx.wsc.inventory.php</instruction>
+		<instruction type="database">acp/database/install_de.xxschrandxx.wsc.assets.php</instruction>
 	</instructions>
 </package>
