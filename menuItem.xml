@@ -5,7 +5,7 @@
 			<menu>com.woltlab.wcf.MainMenu</menu>
 			<title language="de">Vermögenswerte</title>
 			<title language="en">Assets</title>
-			<page>com.example.app.Example</page>
+			<page>de.xxschrandxx.wsc.assets.AssetList</page>
 		</item>
 	</import>
 </data>

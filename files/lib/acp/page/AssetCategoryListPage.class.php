@@ -2,7 +2,8 @@
 
 namespace assets\acp\page;
 
-use assets\data\asset\AssetCategory;
+use assets\data\asset\category\AssetCategory;
+use assets\data\asset\category\AssetCategoryList;
 use wcf\page\MultipleLinkPage;
 
 class AssetCategoryListPage extends MultipleLinkPage
@@ -20,7 +21,7 @@ class AssetCategoryListPage extends MultipleLinkPage
     /**
      * @inheritDoc
      */
-    public $activeMenuItem = 'wcf.acp.menu.link.configuration.assets.asset.category.list';
+    public $activeMenuItem = 'wcf.acp.menu.link.application.assets.asset.category.list';
 
     /**
      * @inheritDoc

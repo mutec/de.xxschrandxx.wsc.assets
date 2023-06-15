@@ -1,6 +1,6 @@
 <?php
 
-namespace assets\data\asset;
+namespace assets\data\asset\location;
 
 use wcf\data\DatabaseObjectEditor;
 

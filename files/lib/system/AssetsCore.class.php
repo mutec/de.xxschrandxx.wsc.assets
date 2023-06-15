@@ -5,7 +5,7 @@ namespace assets\system;
 use assets\page\AssetListPage;
 use wcf\system\application\AbstractApplication;
 
-final class AssetsCore extends AbstractApplication
+final class ASSETSCore extends AbstractApplication
 {
     /**
      * @inheritDoc

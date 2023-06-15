@@ -1,15 +1,15 @@
 <?php
 
-namespace assets\data\asset;
+namespace assets\data\asset\category;
 
 use wcf\data\AbstractDatabaseObjectAction;
 
-class AssetLocationAction extends AbstractDatabaseObjectAction
+class AssetCategoryAction extends AbstractDatabaseObjectAction
 {
     /**
      * @inheritDoc
      */
-    protected $className = AssetLocationEditor::class;
+    protected $className = AssetCategoryEditor::class;
 
     /**
      * @inheritDoc

@@ -2,9 +2,9 @@
 
 namespace assets\acp\page;
 
-use assets\data\asset\AssetCategoryList;
 use assets\data\asset\AssetList;
-use assets\data\asset\AssetLocationList;
+use assets\data\asset\category\AssetCategoryList;
+use assets\data\asset\location\AssetLocationList;
 use wcf\page\SortablePage;
 use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
@@ -14,7 +14,7 @@ class AssetListPage extends SortablePage
     /**
      * @inheritDoc
      */
-    public $activeMenuItem = 'wcf.acp.menu.link.configuration.assets.asset.list';
+    public $activeMenuItem = 'wcf.acp.menu.link.application.assets.asset.list';
 
     /**
      * @inheritDoc
@@ -120,8 +120,5 @@ class AssetListPage extends SortablePage
     public function assignVariables()
     {
         parent::assignVariables();
-
-        WCF::getTPL()->assign([
-        ]);
     }
 }

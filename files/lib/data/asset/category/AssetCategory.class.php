@@ -1,6 +1,6 @@
 <?php
 
-namespace assets\data\asset;
+namespace assets\data\asset\category;
 
 use DateTime;
 use wcf\data\DatabaseObject;
@@ -10,7 +10,7 @@ class AssetCategory extends DatabaseObject
     /**
      * @inheritDoc
      */
-    protected static $databaseTableName = 'asset_category';
+    protected static $databaseTableName = 'category';
 
     /**
      * @inheritDoc

@@ -18,7 +18,7 @@ class AssetLocationAddForm extends AbstractFormBuilderForm
     /**
      * @inheritDoc
      */
-    public $activeMenuItem = 'wcf.acp.menu.link.configuration.assets.asset.location.add';
+    public $activeMenuItem = 'wcf.acp.menu.link.application.assets.asset.location.add';
 
     /**
      * @inheritDoc

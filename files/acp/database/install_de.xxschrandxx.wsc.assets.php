@@ -12,7 +12,7 @@ use wcf\system\database\table\index\DatabaseTableIndex;
 use wcf\system\database\table\index\DatabaseTablePrimaryIndex;
 
 return [
-    DatabaseTable::create('wcf1_assets')
+    DatabaseTable::create('assets1_assets')
         ->columns([
             ObjectIdDatabaseTableColumn::create('assetID'),
             NotNullInt10DatabaseTableColumn::create('categoryID'),
@@ -30,7 +30,7 @@ return [
         ])
         ->indices([
             DatabaseTablePrimaryIndex::create()
-                ->columns(['itemID']),
+                ->columns(['assetID']),
                 DatabaseTableIndex::create('legacyID')
                     ->type(DatabaseTableIndex::UNIQUE_TYPE)
                     ->columns(['legacyID'])
@@ -41,19 +41,19 @@ return [
                 ->columns(['categoryID'])
                 ->onDelete('CASCADE')
                 ->referencedColumns(['categoryID'])
-                ->referencedTable('wcf1_asset_category'),
+                ->referencedTable('assets1_category'),
             DatabaseTableForeignKey::create()
                 ->columns(['locationID'])
                 ->onDelete('SET NULL')
                 ->referencedColumns(['locationID'])
-                ->referencedTable('wcf1_asset_category'),
+                ->referencedTable('assets1_location'),
             DatabaseTableForeignKey::create()
                 ->columns(['userID'])
                 ->onDelete('SET NULL')
                 ->referencedColumns(['userID'])
                 ->referencedTable('wcf1_user')
         ]),
-    DatabaseTable::create('wcf1_assets_category')
+    DatabaseTable::create('assets1_category')
         ->columns([
             ObjectIdDatabaseTableColumn::create('categoryID'),
             VarcharDatabaseTableColumn::create('title')
@@ -65,7 +65,7 @@ return [
             DatabaseTablePrimaryIndex::create()
                 ->columns(['categoryID'])
         ]),
-    DatabaseTable::create('wcf1_asset_location')
+    DatabaseTable::create('assets1_location')
         ->columns([
             ObjectIdDatabaseTableColumn::create('locationID'),
             VarcharDatabaseTableColumn::create('title')

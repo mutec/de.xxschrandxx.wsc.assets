@@ -1,6 +1,6 @@
 <?php
 
-namespace assets\data\asset;
+namespace assets\data\asset\category;
 
 use wcf\data\DatabaseObjectList;
 

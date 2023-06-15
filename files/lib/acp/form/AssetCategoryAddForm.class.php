@@ -18,7 +18,7 @@ class AssetCategoryAddForm extends AbstractFormBuilderForm
     /**
      * @inheritDoc
      */
-    public $activeMenuItem = 'wcf.acp.menu.link.configuration.assets.asset.category.add';
+    public $activeMenuItem = 'wcf.acp.menu.link.application.assets.asset.category.add';
 
     /**
      * @inheritDoc

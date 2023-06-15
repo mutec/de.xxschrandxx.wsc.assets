@@ -2,7 +2,7 @@
 
 namespace assets\acp\form;
 
-use assets\data\asset\AssetCategory;
+use assets\data\asset\category\AssetCategory;
 use wcf\system\exception\IllegalLinkException;
 
 class AssetCategoryEditForm extends AssetCategoryAddForm

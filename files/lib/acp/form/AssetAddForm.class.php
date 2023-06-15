@@ -2,9 +2,9 @@
 
 namespace assets\acp\form;
 
-use assets\data\asset\AssetCategoryList;
 use assets\data\asset\AssetList;
-use assets\data\asset\AssetLocationList;
+use assets\data\asset\category\AssetCategoryList;
+use assets\data\asset\location\AssetLocationList;
 use wcf\data\user\UserList;
 use wcf\form\AbstractFormBuilderForm;
 use wcf\system\form\builder\container\FormContainer;
@@ -29,7 +29,7 @@ class AssetAddForm extends AbstractFormBuilderForm
     /**
      * @inheritDoc
      */
-    public $activeMenuItem = 'wcf.acp.menu.link.configuration.assets.asset.add';
+    public $activeMenuItem = 'wcf.acp.menu.link.application.assets.asset.add';
 
     /**
      * @inheritDoc

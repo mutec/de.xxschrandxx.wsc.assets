@@ -2,42 +2,39 @@
 <data xmlns="https://www.woltlab.com"
 	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.woltlab.com https://www.woltlab.com/XSD/5.5/acpMenu.xsd">
 	<import>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.assets">
-			<parent>wcf.acp.menu.link.configuration</parent>
+		<acpmenuitem name="wcf.acp.menu.link.application.assets">
+			<parent>wcf.acp.menu.link.application</parent>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.management.assets">
-			<parent>wcf.acp.menu.link.management</parent>
-		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.assets.asset.list">
-			<controller>wcf\acp\page\AssetListPage</controller>
-			<parent>wcf.acp.menu.link.configuration.assets</parent>
+		<acpmenuitem name="wcf.acp.menu.link.application.assets.asset.list">
+			<controller>assets\acp\page\AssetListPage</controller>
+			<parent>wcf.acp.menu.link.application.assets</parent>
 			<permissions>admin.assets.canManage</permissions>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.assets.asset.add">
-			<controller>wcf\acp\form\AssetAddForm</controller>
-			<parent>wcf.acp.menu.link.configuration.assets.asset.list</parent>
+		<acpmenuitem name="wcf.acp.menu.link.application.assets.asset.add">
+			<controller>assets\acp\form\AssetAddForm</controller>
+			<parent>wcf.acp.menu.link.application.assets.asset.list</parent>
 			<permissions>admin.assets.canManage</permissions>
 			<icon>fa-plus</icon>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.assets.asset.category.list">
-			<controller>wcf\acp\page\AssetCategoryListPage</controller>
-			<parent>wcf.acp.menu.link.configuration.assets</parent>
+		<acpmenuitem name="wcf.acp.menu.link.application.assets.asset.category.list">
+			<controller>assets\acp\page\AssetCategoryListPage</controller>
+			<parent>wcf.acp.menu.link.application.assets</parent>
 			<permissions>admin.assets.canManage</permissions>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.assets.asset.category.add">
-			<controller>wcf\acp\form\AssetCategoryAddForm</controller>
-			<parent>wcf.acp.menu.link.configuration.assets.asset.category.list</parent>
+		<acpmenuitem name="wcf.acp.menu.link.application.assets.asset.category.add">
+			<controller>assets\acp\form\AssetCategoryAddForm</controller>
+			<parent>wcf.acp.menu.link.application.assets.asset.category.list</parent>
 			<permissions>admin.assets.canManage</permissions>
 			<icon>fa-plus</icon>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.assets.asset.location.list">
-			<controller>wcf\acp\page\AssetLocationListPage</controller>
-			<parent>wcf.acp.menu.link.configuration.assets</parent>
+		<acpmenuitem name="wcf.acp.menu.link.application.assets.asset.location.list">
+			<controller>assets\acp\page\AssetLocationListPage</controller>
+			<parent>wcf.acp.menu.link.application.assets</parent>
 			<permissions>admin.assets.canManage</permissions>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.configuration.assets.asset.location.add">
-			<controller>wcf\acp\form\AssetLocationAddForm</controller>
-			<parent>wcf.acp.menu.link.configuration.assets.asset.location.list</parent>
+		<acpmenuitem name="wcf.acp.menu.link.application.assets.asset.location.add">
+			<controller>assets\acp\form\AssetLocationAddForm</controller>
+			<parent>wcf.acp.menu.link.application.assets.asset.location.list</parent>
 			<permissions>admin.assets.canManage</permissions>
 			<icon>fa-plus</icon>
 		</acpmenuitem>

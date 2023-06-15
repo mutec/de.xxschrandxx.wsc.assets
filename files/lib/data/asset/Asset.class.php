@@ -2,6 +2,8 @@
 
 namespace assets\data\asset;
 
+use assets\data\asset\category\AssetCategory;
+use assets\data\asset\location\AssetLocation;
 use DateTime;
 use InvalidArgumentException;
 use wcf\data\DatabaseObject;

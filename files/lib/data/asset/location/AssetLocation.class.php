@@ -1,6 +1,6 @@
 <?php
 
-namespace assets\data\asset;
+namespace assets\data\asset\location;
 
 use DateTime;
 use wcf\data\DatabaseObject;
@@ -10,7 +10,7 @@ class AssetLocation extends DatabaseObject
     /**
      * @inheritDoc
      */
-    protected static $databaseTableName = 'asset_location';
+    protected static $databaseTableName = 'location';
 
     /**
      * @inheritDoc
