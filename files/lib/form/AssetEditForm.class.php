@@ -1,6 +1,6 @@
 <?php
 
-namespace assets\acp\form;
+namespace assets\form;
 
 use assets\data\asset\Asset;
 use wcf\system\exception\IllegalLinkException;

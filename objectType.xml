@@ -9,7 +9,7 @@
 		<type>
 			<name>de.xxschrandxx.wsc.assets.asset.description.attachment</name>
 			<definitionname>com.woltlab.wcf.attachment.objectType</definitionname>
-			<classname>wcf\system\attachment\AssetDescriptionAttachmentObjectType</classname>
+			<classname>assets\system\attachment\AssetDescriptionAttachmentObjectType</classname>
 		</type>
 	</import>
 </data>

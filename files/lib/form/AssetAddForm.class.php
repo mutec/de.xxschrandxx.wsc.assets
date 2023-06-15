@@ -1,6 +1,6 @@
 <?php
 
-namespace assets\acp\form;
+namespace assets\form;
 
 use assets\data\asset\AssetList;
 use assets\data\asset\category\AssetCategoryList;
@@ -28,8 +28,9 @@ class AssetAddForm extends AbstractFormBuilderForm
 
     /**
      * @inheritDoc
+     * TODO
      */
-    public $activeMenuItem = 'wcf.acp.menu.link.application.assets.asset.add';
+//    public $activeMenuItem = 'wcf.menu.link.application.assets.asset.add';
 
     /**
      * @inheritDoc
@@ -98,9 +99,9 @@ class AssetAddForm extends AbstractFormBuilderForm
         }
 
         $canBeBorrowedFormField = BooleanFormField::create('canBeBorrowed')
-            ->label('wcf.acp.form.asset.field.canBeBorrowed');
+            ->label('wcf.form.asset.field.canBeBorrowed');
         $borroewdFormField = BooleanFormField::create('borrowed')
-            ->label('wcf.acp.form.asset.field.borrowed')
+            ->label('wcf.form.asset.field.borrowed')
             ->addDependency(
                 NonEmptyFormFieldDependency::create('canBeBorrowed')
                     ->field($canBeBorrowedFormField)
@@ -109,8 +110,8 @@ class AssetAddForm extends AbstractFormBuilderForm
         if (ASSETS_LEGACYID_ENABLED) {
             $children = [
                 TextFormField::create('legacyID')
-                    ->label('wcf.acp.form.asset.field.legacyID')
-                    ->description('wcf.acp.form.asset.field.legacyID.description')
+                    ->label('wcf.form.asset.field.legacyID')
+                    ->description('wcf.form.asset.field.legacyID.description')
                     ->minimumLength(1)
                     ->addValidator(new FormFieldValidator('checkDuplicate', function (TextFormField $field) {
                         if ($this->formAction === 'edit' && $this->formObject->getLegacyID() === $field->getValue()) {
@@ -122,7 +123,7 @@ class AssetAddForm extends AbstractFormBuilderForm
                             $field->addValidationError(
                                 new FormFieldValidationError(
                                     'duplicate',
-                                    'wcf.acp.form.asset.field.legacyID.error.duplicate'
+                                    'wcf.form.asset.field.legacyID.error.duplicate'
                                 )
                             );
                         }
@@ -138,7 +139,7 @@ class AssetAddForm extends AbstractFormBuilderForm
                 ->maximumLength(20)
                 ->required(),
             SingleSelectionFormField::create('categoryID')
-                ->label('wcf.acp.form.asset.field.categoryID')
+                ->label('wcf.form.asset.field.categoryID')
                 ->options($categories, true, false)
                 ->addValidator(new FormFieldValidator('checkCategoryID', function (SingleSelectionFormField $field) {
                     if ($field->getValue() === null || $field->getValue() === "0") {
@@ -152,13 +153,13 @@ class AssetAddForm extends AbstractFormBuilderForm
                 }))
                 ->required(),
             IntegerFormField::create('amount')
-                ->label('wcf.acp.form.asset.field.amount')
+                ->label('wcf.form.asset.field.amount')
                 ->minimum(1)
                 ->required(),
             $canBeBorrowedFormField,
             $borroewdFormField,
             SingleSelectionFormField::create('userID')
-                ->label('wcf.acp.form.asset.field.userID')
+                ->label('wcf.form.asset.field.userID')
                 ->options($userOptions, true, false)
                 ->addDependency(
                     NonEmptyFormFieldDependency::create('borrowed')
@@ -170,8 +171,8 @@ class AssetAddForm extends AbstractFormBuilderForm
                 )
                 ->required(),
             SingleSelectionFormField::create('locationID')
-                ->label('wcf.acp.form.asset.field.locationID')
-                ->description('wcf.acp.form.asset.field.locationID.description')
+                ->label('wcf.form.asset.field.locationID')
+                ->description('wcf.form.asset.field.locationID.description')
                 ->options($locations, true, false)
                 ->addValidator(new FormFieldValidator('checkLocationID', function (SingleSelectionFormField $field) {
                     if ($field->getValue() === null || $field->getValue() === "0") {
@@ -190,9 +191,9 @@ class AssetAddForm extends AbstractFormBuilderForm
             FormContainer::create('data')
                 ->appendChildren($children),
             WysiwygFormContainer::create('description')
-                ->label('wcf.acp.form.asset.field.description')
-                ->messageObjectType('de.xxschrandxx.wsc.inventory.asset.description')
-                ->attachmentData('de.xxschrandxx.wsc.inventory.asset.description.attachment'),
+                ->label('wcf.form.asset.field.description')
+                ->messageObjectType('de.xxschrandxx.wsc.assets.asset.description')
+                ->attachmentData('de.xxschrandxx.wsc.assets.asset.description.attachment'),
         ]);
     }
 }

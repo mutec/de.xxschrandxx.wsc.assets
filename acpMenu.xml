@@ -5,17 +5,6 @@
 		<acpmenuitem name="wcf.acp.menu.link.application.assets">
 			<parent>wcf.acp.menu.link.application</parent>
 		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.application.assets.asset.list">
-			<controller>assets\acp\page\AssetListPage</controller>
-			<parent>wcf.acp.menu.link.application.assets</parent>
-			<permissions>admin.assets.canManage</permissions>
-		</acpmenuitem>
-		<acpmenuitem name="wcf.acp.menu.link.application.assets.asset.add">
-			<controller>assets\acp\form\AssetAddForm</controller>
-			<parent>wcf.acp.menu.link.application.assets.asset.list</parent>
-			<permissions>admin.assets.canManage</permissions>
-			<icon>fa-plus</icon>
-		</acpmenuitem>
 		<acpmenuitem name="wcf.acp.menu.link.application.assets.asset.category.list">
 			<controller>assets\acp\page\AssetCategoryListPage</controller>
 			<parent>wcf.acp.menu.link.application.assets</parent>

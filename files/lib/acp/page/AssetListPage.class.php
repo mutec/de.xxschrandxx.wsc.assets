@@ -7,7 +7,6 @@ use assets\data\asset\category\AssetCategoryList;
 use assets\data\asset\location\AssetLocationList;
 use wcf\page\SortablePage;
 use wcf\system\request\LinkHandler;
-use wcf\system\WCF;
 
 class AssetListPage extends SortablePage
 {
@@ -82,7 +81,7 @@ class AssetListPage extends SortablePage
             $parameters['searchBorrowed'] = $this->searchBorrowed;
         }
 
-        $this->canonicalURL = LinkHandler::getInstance()->getLink('AssetList', $parameters);
+        $this->canonicalURL = LinkHandler::getInstance()->getLink($this::class, $parameters);
     }
 
     /**

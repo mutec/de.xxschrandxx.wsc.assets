@@ -17,9 +17,6 @@
 	<category name="wcf.acp.menu">
 		<item name="wcf.acp.menu.link.management.assets"><![CDATA[Vermögenswerte]]></item>
 		<item name="wcf.acp.menu.link.application.assets"><![CDATA[Vermögenswerte]]></item>
-		<!-- Assets -->
-		<item name="wcf.acp.menu.link.application.assets.asset.list"><![CDATA[Vermögenswerte]]></item>
-		<item name="wcf.acp.menu.link.application.assets.asset.add"><![CDATA[Artikel hinzufügen]]></item>
 		<!-- Category-->
 		<item name="wcf.acp.menu.link.application.assets.asset.category.list"><![CDATA[Kategorien]]></item>
 		<item name="wcf.acp.menu.link.application.assets.asset.category.add"><![CDATA[Kategorie hinzufügen]]></item>
@@ -28,12 +25,6 @@
 		<item name="wcf.acp.menu.link.application.assets.asset.location.add"><![CDATA[Standort hinzufügen]]></item>
 	</category>
 	<category name="wcf.acp.page">
-		<!-- Assets -->
-		<item name="wcf.acp.page.assetList.title"><![CDATA[Vermögenswerte]]></item>
-		<item name="wcf.acp.page.assetList.category"><![CDATA[Kategorie]]></item>
-		<item name="wcf.acp.page.assetList.amount"><![CDATA[Stückzahl]]></item>
-		<item name="wcf.acp.page.assetList.location"><![CDATA[Standort]]></item>
-		<item name="wcf.acp.page.assetList.creationDate"><![CDATA[Erstellt]]></item>
 		<!-- Category-->
 		<item name="wcf.acp.page.assetCategoryList.title"><![CDATA[Artikel Kategorie]]></item>
 		<item name="wcf.acp.page.assetCategoryList.creationDate"><![CDATA[Erstellt]]></item>
@@ -43,19 +34,6 @@
 		<item name="wcf.acp.page.assetLocationList.creationDate"><![CDATA[Erstellt]]></item>
 	</category>
 	<category name="wcf.acp.form">
-		<!-- Assets -->
-		<item name="wcf.acp.form.asset.title.add"><![CDATA[Artikel hinzufügen]]></item>
-		<item name="wcf.acp.form.asset.title.edit"><![CDATA[Artikel bearbeiten]]></item>
-		<item name="wcf.acp.form.asset.field.legacyID"><![CDATA[ID]]></item>
-		<item name="wcf.acp.form.asset.field.legacyID.description"><![CDATA[Artikel Identifikationsnummer.]]></item>
-		<item name="wcf.acp.form.asset.field.legacyID.error.duplicate"><![CDATA[Diese ID wird schon verwendet.]]></item>
-		<item name="wcf.acp.form.asset.field.categoryID"><![CDATA[Kategorie]]></item>
-		<item name="wcf.acp.form.asset.field.amount"><![CDATA[Stückzahl]]></item>
-		<item name="wcf.acp.form.asset.field.canBeBorrowed"><![CDATA[Kann ausgeliehen werden]]></item>
-		<item name="wcf.acp.form.asset.field.borrowed"><![CDATA[Ist ausgeliehen]]></item>
-		<item name="wcf.acp.form.asset.field.userID"><![CDATA[Ausgeliehen an]]></item>
-		<item name="wcf.acp.form.asset.field.locationID"><![CDATA[Standort]]></item>
-		<item name="wcf.acp.form.asset.field.locationID.description"><![CDATA[Standort des Artikels, wenn er nicht ausgeliehen ist.]]></item>
 		<!-- Category-->
 		<item name="wcf.acp.form.assetCategory.title.add"><![CDATA[Kategorie hinzufügen]]></item>
 		<item name="wcf.acp.form.assetCategory.title.edit"><![CDATA[Kategorie bearbeiten]]></item>
@@ -64,5 +42,29 @@
 		<item name="wcf.acp.form.assetLocation.title.edit"><![CDATA[Standort bearbeiten]]></item>
 		<item name="wcf.acp.form.assetLocation.field.address"><![CDATA[Adresse]]></item>
 		<item name="wcf.acp.form.assetLocation.field.address.description"><![CDATA[Adresse oder Hinweise zum Aufenthaltsort.]]></item>
+	</category>
+	<category name="wcf.page">
+		<!-- Assets -->
+		<item name="wcf.page.assetList.title"><![CDATA[Vermögenswerte]]></item>
+		<item name="wcf.page.assetList.category"><![CDATA[Kategorie]]></item>
+		<item name="wcf.page.assetList.amount"><![CDATA[Stückzahl]]></item>
+		<item name="wcf.page.assetList.location"><![CDATA[Standort]]></item>
+		<item name="wcf.page.assetList.creationDate"><![CDATA[Erstellt]]></item>
+	</category>
+	<category name="wcf.form">
+		<!-- Assets -->
+		<item name="wcf.form.asset.title.add"><![CDATA[Artikel hinzufügen]]></item>
+		<item name="wcf.form.asset.title.edit"><![CDATA[Artikel bearbeiten]]></item>
+		<item name="wcf.form.asset.field.legacyID"><![CDATA[ID]]></item>
+		<item name="wcf.form.asset.field.legacyID.description"><![CDATA[Artikel Identifikationsnummer.]]></item>
+		<item name="wcf.form.asset.field.legacyID.error.duplicate"><![CDATA[Diese ID wird schon verwendet.]]></item>
+		<item name="wcf.form.asset.field.categoryID"><![CDATA[Kategorie]]></item>
+		<item name="wcf.form.asset.field.amount"><![CDATA[Stückzahl]]></item>
+		<item name="wcf.form.asset.field.canBeBorrowed"><![CDATA[Kann ausgeliehen werden]]></item>
+		<item name="wcf.form.asset.field.borrowed"><![CDATA[Ist ausgeliehen]]></item>
+		<item name="wcf.form.asset.field.userID"><![CDATA[Ausgeliehen an]]></item>
+		<item name="wcf.form.asset.field.locationID"><![CDATA[Standort]]></item>
+		<item name="wcf.form.asset.field.locationID.description"><![CDATA[Standort des Artikels, wenn er nicht ausgeliehen ist.]]></item>
+		<item name="wcf.form.asset.field.description"><![CDATA[Beschreibung]]></item>
 	</category>
 </language>

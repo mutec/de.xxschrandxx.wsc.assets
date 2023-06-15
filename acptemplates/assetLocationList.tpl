@@ -2,15 +2,15 @@
 
 <header class="contentHeader">
 	<div class="contentHeaderTitle">
-		<h1 class="contentTitle">{lang}wcf.acp.page.itemLocationList.title{/lang}</h1>
+		<h1 class="contentTitle">{lang}wcf.acp.page.assetLocationList.title{/lang}</h1>
 	</div>
 
 	<nav class="contentHeaderNavigation">
 		<ul>
 			<li>
-				<a href="{link controller='ItemLocationAdd'}{/link}" class="button">
+				<a href="{link controller='AssetLocationAdd'}{/link}" class="button">
 					<span class="icon icon16 fa-plus"></span>
-				<span>{lang}wcf.acp.menu.link.configuration.inventory.item.location.add{/lang}</span>
+				<span>{lang}wcf.acp.menu.link.application.assets.asset.location.add{/lang}</span>
 				</a>
 			</li>
 			{event name='contentHeaderNavigation'}
@@ -21,28 +21,28 @@
 {hascontent}
 <div class="paginationTop">
 	{content}
-		{pages print=true assign=pagesLinks controller="ItemLocationList" link="pageNo=%d"}
+		{pages print=true assign=pagesLinks controller="AssetLocationList" link="pageNo=%d"}
 	{/content}
 </div>
 {/hascontent}
 
 {if $objects|count}
 	<div class="section tabularBox">
-		<table class="table jsObjectActionContainer" data-object-action-class-name="wcf\data\inventory\ItemLocationAction">
+		<table class="table jsObjectActionContainer" data-object-action-class-name="assets\data\assets\AssetLocationAction">
 			<thead>
 				<tr>
 					<th></th>
 					<th>{lang}wcf.global.objectID{/lang}</th>
 					<th>{lang}wcf.global.title{/lang}</th>
-					<th>{lang}wcf.acp.page.itemLocationList.address{/lang}</th>
-					<th>{lang}wcf.acp.page.itemLocationList.creationDate{/lang}</th>
+					<th>{lang}wcf.acp.page.assetLocationList.address{/lang}</th>
+					<th>{lang}wcf.acp.page.assetLocationList.creationDate{/lang}</th>
 				</tr>
 			</thead>
 			<tbody>
 				{foreach from=$objects item=object}
 					<tr class="jsObjectActionObject" data-object-id="{@$object->getObjectID()}">
 						<td class="columnIcon">
-							<a href="{link controller='ItemLocationEdit' id=$object->getObjectID()}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip">
+							<a href="{link controller='AssetLocationEdit' id=$object->getObjectID()}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip">
 								<span class="icon icon16 fa-pencil"></span>
 							</a>
 							{objectAction action="delete" objectTitle=$object->getTitle()}
