@@ -26,10 +26,10 @@
 	</category>
 	<category name="wcf.acp.page">
 		<!-- Category-->
-		<item name="wcf.acp.page.assetCategoryList.title"><![CDATA[Artikel Kategorie]]></item>
+		<item name="wcf.acp.page.assetCategoryList.title"><![CDATA[Vermögenswert Kategorie]]></item>
 		<item name="wcf.acp.page.assetCategoryList.creationDate"><![CDATA[Erstellt]]></item>
 		<!-- Location -->
-		<item name="wcf.acp.page.assetLocationList.title"><![CDATA[Artikel Standort]]></item>
+		<item name="wcf.acp.page.assetLocationList.title"><![CDATA[Vermögenswert Standort]]></item>
 		<item name="wcf.acp.page.assetLocationList.address"><![CDATA[Adresse]]></item>
 		<item name="wcf.acp.page.assetLocationList.creationDate"><![CDATA[Erstellt]]></item>
 	</category>
@@ -53,10 +53,10 @@
 	</category>
 	<category name="wcf.form">
 		<!-- Assets -->
-		<item name="wcf.form.asset.title.add"><![CDATA[Artikel hinzufügen]]></item>
-		<item name="wcf.form.asset.title.edit"><![CDATA[Artikel bearbeiten]]></item>
+		<item name="wcf.form.asset.title.add"><![CDATA[Vermögenswert hinzufügen]]></item>
+		<item name="wcf.form.asset.title.edit"><![CDATA[Vermögenswert bearbeiten]]></item>
 		<item name="wcf.form.asset.field.legacyID"><![CDATA[ID]]></item>
-		<item name="wcf.form.asset.field.legacyID.description"><![CDATA[Artikel Identifikationsnummer.]]></item>
+		<item name="wcf.form.asset.field.legacyID.description"><![CDATA[Identifikationswert des Vermögenswertes.]]></item>
 		<item name="wcf.form.asset.field.legacyID.error.duplicate"><![CDATA[Diese ID wird schon verwendet.]]></item>
 		<item name="wcf.form.asset.field.categoryID"><![CDATA[Kategorie]]></item>
 		<item name="wcf.form.asset.field.amount"><![CDATA[Stückzahl]]></item>
@@ -64,7 +64,7 @@
 		<item name="wcf.form.asset.field.borrowed"><![CDATA[Ist ausgeliehen]]></item>
 		<item name="wcf.form.asset.field.userID"><![CDATA[Ausgeliehen an]]></item>
 		<item name="wcf.form.asset.field.locationID"><![CDATA[Standort]]></item>
-		<item name="wcf.form.asset.field.locationID.description"><![CDATA[Standort des Artikels, wenn er nicht ausgeliehen ist.]]></item>
+		<item name="wcf.form.asset.field.locationID.description"><![CDATA[Standort des Vermögenswertes, wenn er nicht ausgeliehen ist.]]></item>
 		<item name="wcf.form.asset.field.description"><![CDATA[Beschreibung]]></item>
 	</category>
 </language>
