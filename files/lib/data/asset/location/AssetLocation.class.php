@@ -36,20 +36,20 @@ class AssetLocation extends DatabaseObject
     }
 
     /**
-    * Returns createdTimestamp
-    * @return ?int
-    */
-   public function getCreatedTimestamp()
-   {
-       return $this->creationDate;
-   }
+     * Returns createdTimestamp
+     * @return ?int
+     */
+    public function getCreatedTimestamp()
+    {
+        return $this->creationDate;
+    }
 
-   /**
-    * Returns creation date
-    * @return ?DateTime
-    */
-   public function getCreatdDate()
-   {
-       return new DateTime($this->getCreatedTimestamp());
-   }
+    /**
+     * Returns creation date
+     * @return ?DateTime
+     */
+    public function getCreatdDate()
+    {
+        return new DateTime($this->getCreatedTimestamp());
+    }
 }

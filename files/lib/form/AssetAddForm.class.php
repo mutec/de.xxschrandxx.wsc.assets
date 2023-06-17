@@ -132,8 +132,9 @@ class AssetAddForm extends AbstractFormBuilderForm
         } else {
             $children = [];
         }
-    
-        \array_push($children,
+
+        \array_push(
+            $children,
             TitleFormField::create()
                 ->value('Default')
                 ->maximumLength(20)
