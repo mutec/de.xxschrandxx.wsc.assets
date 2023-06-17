@@ -11,6 +11,7 @@ class AssetDescriptionAttachmentObjectType extends AbstractAttachmentObjectType
      */
     public function canDownload($objectID)
     {
+        // TODO
         return true;
     }
 
@@ -21,11 +22,13 @@ class AssetDescriptionAttachmentObjectType extends AbstractAttachmentObjectType
     {
         return $this->canDownload($objectID);
     }
+
     /**
      * @inheritDoc
      */
     public function canUpload($objectID, $parentObjectID = 0)
     {
+        // TODO
         return true;
     }
 
