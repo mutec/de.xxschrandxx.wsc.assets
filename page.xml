@@ -7,6 +7,8 @@
 			<name language="de">Vermögenswerte</name>
 			<name language="en">Assets</name>
 			<allowSpidersToIndex>1</allowSpidersToIndex>
+			<!-- TODO -->
+			<permissions>admin.assets.canManage</permissions>
 			<content language="en">
 				<title>Assets</title>
 			</content>
