@@ -28,9 +28,8 @@ class AssetAddForm extends AbstractFormBuilderForm
 
     /**
      * @inheritDoc
-     * TODO
      */
-//    public $activeMenuItem = 'wcf.menu.link.application.assets.asset.add';
+    public $activeMenuItem = 'de.xxschrandxx.wsc.assets.AssetAdd';
 
     /**
      * @inheritDoc

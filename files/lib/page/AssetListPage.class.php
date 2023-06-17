@@ -12,9 +12,8 @@ class AssetListPage extends SortablePage
 {
     /**
      * @inheritDoc
-     * TODO
      */
-//    public $activeMenuItem = 'TODO';
+    public $activeMenuItem = 'de.xxschrandxx.wsc.assets.AssetList';
 
     /**
      * @inheritDoc
