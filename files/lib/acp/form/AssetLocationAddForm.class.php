@@ -27,7 +27,7 @@ class AssetLocationAddForm extends AbstractFormBuilderForm
 
     /**
      * @inheritDoc
-     * @var \assets\data\assets\AssetLocation
+     * @var \assets\data\asset\location\AssetLocation
      */
     public $formObject;
 

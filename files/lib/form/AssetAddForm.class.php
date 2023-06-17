@@ -60,7 +60,7 @@ class AssetAddForm extends AbstractFormBuilderForm
         ];
         $assetCategoryList = new AssetCategoryList();
         $assetCategoryList->readObjects();
-        /** @var \wcf\data\assets\AssetCategory[] */
+        /** @var \assets\data\asset\category\AssetCategory[] */
         $assetCatefories = $assetCategoryList->getObjects();
         foreach ($assetCatefories as $assetCategory) {
             \array_push($categories, ['label' => $assetCategory->getTitle(), 'value' => $assetCategory->getObjectID(), 'depth' => 0]);
@@ -92,7 +92,7 @@ class AssetAddForm extends AbstractFormBuilderForm
         ];
         $assetLocationList = new AssetLocationList();
         $assetLocationList->readObjects();
-        /** @var \wcf\data\assets\AssetLocation[] */
+        /** @var \assets\data\asset\location\AssetLocation[] */
         $assetLocations = $assetLocationList->getObjects();
         foreach ($assetLocations as $assetLocation) {
             \array_push($locations, ['label' => $assetLocation->getTitle(), 'value' => $assetLocation->getObjectID(), 'depth' => 0]);
