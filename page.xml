@@ -9,12 +9,27 @@
 			<allowSpidersToIndex>1</allowSpidersToIndex>
 			<!-- TODO -->
 			<permissions>admin.assets.canManage</permissions>
-			<content language="en">
-				<title>Assets</title>
-			</content>
-			<content language="de">
-				<title>Vermögenswerte</title>
-			</content>
+		</page>
+		<page identifier="de.xxschrandxx.wsc.assets.AssetAdd">
+			<pageType>system</pageType>
+			<controller>assets\form\AssetAddForm</controller>
+			<parent>de.xxschrandxx.wsc.assets.AssetList</parent>
+			<name language="de">Vermögenswert hinzufügen</name>
+			<name language="en">Add Assets</name>
+			<allowSpidersToIndex>1</allowSpidersToIndex>
+			<!-- TODO -->
+			<permissions>admin.assets.canManage</permissions>
+		</page>
+		<page identifier="de.xxschrandxx.wsc.assets.AssetEdit">
+			<pageType>system</pageType>
+			<controller>assets\form\AssetEditForm</controller>
+			<parent>de.xxschrandxx.wsc.assets.AssetAdd</parent>
+			<name language="de">Vermögenswert bearbeiten</name>
+			<name language="en">Edit Assets</name>
+			<allowSpidersToIndex>0</allowSpidersToIndex>
+			<requireObjectID>1</requireObjectID>
+			<!-- TODO -->
+			<permissions>admin.assets.canManage</permissions>
 		</page>
 	</import>
 </data>
