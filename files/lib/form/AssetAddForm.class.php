@@ -2,6 +2,8 @@
 
 namespace assets\form;
 
+use assets\data\asset\Asset;
+use assets\data\asset\AssetAction;
 use assets\data\asset\AssetList;
 use assets\data\asset\category\AssetCategoryList;
 use assets\data\asset\location\AssetLocationList;
@@ -116,99 +118,107 @@ class AssetAddForm extends AbstractFormBuilderForm
             ]);
         }
 
-        $canBeBorrowedFormField = BooleanFormField::create('canBeBorrowed')
-            ->label('wcf.form.asset.field.canBeBorrowed');
-        $borroewdFormField = BooleanFormField::create('borrowed')
-            ->label('wcf.form.asset.field.borrowed')
-            ->addDependency(
-                NonEmptyFormFieldDependency::create('canBeBorrowed')
-                    ->field($canBeBorrowedFormField)
-            );
-
-        if (ASSETS_LEGACYID_ENABLED) {
-            $children = [
-                TextFormField::create('legacyID')
-                    ->label('wcf.form.asset.field.legacyID')
-                    ->description('wcf.form.asset.field.legacyID.description')
-                    ->minimumLength(1)
-                    ->addValidator(new FormFieldValidator('checkDuplicate', function (TextFormField $field) {
-                        if ($this->formAction === 'edit' && $this->formObject->getLegacyID() === $field->getValue()) {
-                            return;
-                        }
-                        $assetList = new AssetList();
-                        $assetList->getConditionBuilder()->add('legacyID = ?', [$field->getValue()]);
-                        if ($assetList->countObjects() !== 0) {
-                            $field->addValidationError(
-                                new FormFieldValidationError(
-                                    'duplicate',
-                                    'wcf.form.asset.field.legacyID.error.duplicate'
-                                )
-                            );
-                        }
-                    }))
-            ];
-        } else {
-            $children = [];
-        }
-
-        \array_push(
-            $children,
-            TitleFormField::create()
-                ->value('Default')
-                ->maximumLength(20)
-                ->required(),
-            SingleSelectionFormField::create('categoryID')
-                ->label('wcf.form.asset.field.categoryID')
-                ->options($categories, true, false)
-                ->addValidator(new FormFieldValidator('checkCategoryID', function (SingleSelectionFormField $field) {
-                    if ($field->getValue() === null || $field->getValue() === "0") {
-                        $field->addValidationError(
-                            new FormFieldValidationError(
-                                'invalidValue',
-                                'wcf.global.form.error.noValidSelection'
-                            )
-                        );
-                    }
-                }))
-                ->required(),
-            IntegerFormField::create('amount')
-                ->label('wcf.form.asset.field.amount')
-                ->minimum(1)
-                ->required(),
-            $canBeBorrowedFormField,
-            $borroewdFormField,
-            SingleSelectionFormField::create('userID')
-                ->label('wcf.form.asset.field.userID')
-                ->options($userOptions, true, false)
-                ->addDependency(
-                    NonEmptyFormFieldDependency::create('borrowed')
-                        ->field($borroewdFormField)
-                )
-                ->addDependency(
-                    NonEmptyFormFieldDependency::create('canBeBorrowed')
-                        ->field($canBeBorrowedFormField)
-                )
-                ->required(),
-            SingleSelectionFormField::create('locationID')
-                ->label('wcf.form.asset.field.locationID')
-                ->description('wcf.form.asset.field.locationID.description')
-                ->options($locations, true, false)
-                ->addValidator(new FormFieldValidator('checkLocationID', function (SingleSelectionFormField $field) {
-                    if ($field->getValue() === null || $field->getValue() === "0") {
-                        $field->addValidationError(
-                            new FormFieldValidationError(
-                                'invalidValue',
-                                'wcf.global.form.error.noValidSelection'
-                            )
-                        );
-                    }
-                }))
-                ->required()
-        );
-
         $this->form->appendChildren([
             FormContainer::create('data')
-                ->appendChildren($children),
+                ->appendChildren([
+                    TextFormField::create('legacyID')
+                        ->label('wcf.form.asset.field.legacyID')
+                        ->description('wcf.form.asset.field.legacyID.description')
+                        ->minimumLength(1)
+                        ->available(ASSETS_LEGACYID_ENABLED)
+                        ->addValidator(
+                            new FormFieldValidator(
+                                'checkDuplicate',
+                                function (TextFormField $field) {
+                                    if (
+                                        $this->formAction === 'edit'
+                                        && $this->formObject instanceof Asset
+                                        && $this->formObject->getLegacyID() === $field->getValue()
+                                    ) {
+                                        return;
+                                    }
+
+                                    $assetList = new AssetList();
+                                    $assetList->getConditionBuilder()->add('legacyID = ?', [$field->getValue()]);
+                                    if ($assetList->countObjects() > 0) {
+                                        $field->addValidationError(
+                                            new FormFieldValidationError(
+                                                'duplicate',
+                                                'wcf.form.asset.field.legacyID.error.duplicate'
+                                            )
+                                        );
+                                    }
+                                }
+                            )
+                        ),
+                    TitleFormField::create()
+                        ->value('Default')
+                        ->maximumLength(20)
+                        ->required(),
+                    SingleSelectionFormField::create('categoryID')
+                        ->label('wcf.form.asset.field.categoryID')
+                        ->options($categories, true, false)
+                        ->addValidator(
+                            new FormFieldValidator(
+                                'checkCategoryID',
+                                static function (SingleSelectionFormField $field) {
+                                    if ($field->getValue() === null || $field->getValue() === '0') {
+                                        $field->addValidationError(
+                                            new FormFieldValidationError(
+                                                'invalidValue',
+                                                'wcf.global.form.error.noValidSelection'
+                                            )
+                                        );
+                                    }
+                                }
+                            )
+                        )
+                        ->required(),
+                    IntegerFormField::create('amount')
+                        ->label('wcf.form.asset.field.amount')
+                        ->minimum(1)
+                        ->required(),
+                    BooleanFormField::create('canBeBorrowed')
+                        ->label('wcf.form.asset.field.canBeBorrowed'),
+                    BooleanFormField::create('borrowed')
+                        ->label('wcf.form.asset.field.borrowed')
+                        ->addDependency(
+                            NonEmptyFormFieldDependency::create('canBeBorrowed')
+                                ->fieldId('canBeBorrowed')
+                        ),
+                    SingleSelectionFormField::create('userID')
+                        ->label('wcf.form.asset.field.userID')
+                        ->options($userOptions, true, false)
+                        ->addDependency(
+                            NonEmptyFormFieldDependency::create('borrowed')
+                                ->fieldId('borrowed')
+                        )
+                        ->addDependency(
+                            NonEmptyFormFieldDependency::create('canBeBorrowed')
+                                ->fieldId('canBeBorrowed')
+                        )
+                        ->required(),
+                    SingleSelectionFormField::create('locationID')
+                        ->label('wcf.form.asset.field.locationID')
+                        ->description('wcf.form.asset.field.locationID.description')
+                        ->options($locations, true, false)
+                        ->addValidator(
+                            new FormFieldValidator(
+                                'checkLocationID',
+                                static function (SingleSelectionFormField $field) {
+                                    if ($field->getValue() === null || $field->getValue() === '0') {
+                                        $field->addValidationError(
+                                            new FormFieldValidationError(
+                                                'invalidValue',
+                                                'wcf.global.form.error.noValidSelection'
+                                            )
+                                        );
+                                    }
+                                }
+                            )
+                        )
+                        ->required(),
+                ]),
             WysiwygFormContainer::create('description')
                 ->label('wcf.form.asset.field.description')
                 ->messageObjectType('de.xxschrandxx.wsc.assets.asset.description')
