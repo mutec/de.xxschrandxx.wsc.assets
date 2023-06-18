@@ -30,9 +30,13 @@ class AssetCategoryAddForm extends AbstractFormBuilderForm
 
     /**
      * @inheritDoc
-     * @var \wcf\data\assets\AssetCategory
      */
-    public $formObject;
+    public $objectEditLinkController = AssetCategoryEditForm::class;
+
+    /**
+     * @inheritDoc
+     */
+    public $objectEditLinkApplication = 'assets';
 
     /**
      * @inheritDoc

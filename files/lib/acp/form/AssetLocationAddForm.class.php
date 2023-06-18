@@ -30,9 +30,13 @@ class AssetLocationAddForm extends AbstractFormBuilderForm
 
     /**
      * @inheritDoc
-     * @var \assets\data\asset\location\AssetLocation
      */
-    public $formObject;
+    public $objectEditLinkController = AssetLocationEditForm::class;
+
+    /**
+     * @inheritDoc
+     */
+    public $objectEditLinkApplication = 'assets';
 
     /**
      * @inheritDoc
