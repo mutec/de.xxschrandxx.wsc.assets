@@ -39,7 +39,7 @@ class Asset extends DatabaseObject implements ITitledObject
      * Returns legacyID
      * @return ?string
      */
-    public function getLegacyID()
+    public function getLegacyID(): ?string
     {
         return $this->legacyID;
     }
@@ -48,7 +48,7 @@ class Asset extends DatabaseObject implements ITitledObject
      * Returns amount
      * @return ?int
      */
-    public function getAmount()
+    public function getAmount(): int
     {
         return $this->amount;
     }
@@ -57,18 +57,18 @@ class Asset extends DatabaseObject implements ITitledObject
      * Returns weather can be borrowed
      * @return bool
      */
-    public function canBeBorrowed()
+    public function canBeBorrowed(): bool
     {
-        return $this->canBeBorrowed;
+        return (bool)$this->canBeBorrowed;
     }
 
     /**
      * Returns weather borroewd
      * @return bool
      */
-    public function isBorrowed()
+    public function isBorrowed(): bool
     {
-        return $this->borrowed;
+        return (bool)$this->borrowed;
     }
 
     /**
@@ -76,7 +76,7 @@ class Asset extends DatabaseObject implements ITitledObject
      * @return ?int
      * @throws InvalidArgumentException If the Asset is borrowed
      */
-    public function getLocationID()
+    public function getLocationID(): ?int
     {
         if ($this->isBorrowed()) {
             throw new InvalidArgumentException('Asset is borrowed.');
@@ -89,7 +89,7 @@ class Asset extends DatabaseObject implements ITitledObject
      * Returns AssetLocation
      * @return ?AssetLocation
      */
-    public function getLocation()
+    public function getLocation(): ?AssetLocation
     {
         return new AssetLocation($this->getLocationID());
     }
@@ -99,7 +99,7 @@ class Asset extends DatabaseObject implements ITitledObject
      * @return ?int
      * @throws InvalidArgumentException If the Asset is not borrowed
      */
-    public function getUserID()
+    public function getUserID(): ?int
     {
         if (!$this->isBorrowed()) {
             throw new InvalidArgumentException('Asset is borrowed.');
@@ -112,7 +112,7 @@ class Asset extends DatabaseObject implements ITitledObject
      * Returns User
      * @return ?User
      */
-    public function getUser()
+    public function getUser(): ?User
     {
         return new User($this->getUserID());
     }
@@ -121,7 +121,7 @@ class Asset extends DatabaseObject implements ITitledObject
      * Returns user Profile
      * @return ?UserProfile
      */
-    public function getUserProfile()
+    public function getUserProfile(): ?UserProfile
     {
         return new UserProfile($this->getUser());
     }
@@ -130,7 +130,7 @@ class Asset extends DatabaseObject implements ITitledObject
      * Returns categoryID
      * @return int
      */
-    public function getCategoryID()
+    public function getCategoryID(): int
     {
         return $this->categoryID;
     }
@@ -139,7 +139,7 @@ class Asset extends DatabaseObject implements ITitledObject
      * Returns AssetCategory
      * @return ?AssetCategory
      */
-    public function getCategory()
+    public function getCategory(): AssetCategory
     {
         return new AssetCategory($this->getCategoryID());
     }
@@ -148,7 +148,7 @@ class Asset extends DatabaseObject implements ITitledObject
      * Returns lastModifiedTimestamp
      * @return int
      */
-    public function getLastModifiedTimestamp()
+    public function getLastModifiedTimestamp(): int
     {
         return $this->lastModifiedDate;
     }
@@ -166,7 +166,7 @@ class Asset extends DatabaseObject implements ITitledObject
      * Returns createdTimestamp
      * @return int
      */
-    public function getCreatedTimestamp()
+    public function getCreatedTimestamp(): int
     {
         return $this->creationDate;
     }

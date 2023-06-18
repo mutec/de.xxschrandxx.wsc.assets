@@ -55,19 +55,19 @@ class AssetListPage extends SortablePage
      * available categories
      * @var array
      */
-    public $availableCategories = [];
+    public array $availableCategories = [];
 
     /**
      * available location
      * @var array
      */
-    public $availableLocations = [];
+    public array $availableLocations = [];
 
     /**
      * search for borrowed assets
      * @var ?bool
      */
-    public $searchBorrowed = null;
+    public ?bool $searchBorrowed = null;
 
     /**
      * @inheritDoc

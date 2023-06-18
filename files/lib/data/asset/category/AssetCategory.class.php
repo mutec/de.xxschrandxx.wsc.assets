@@ -32,7 +32,7 @@ class AssetCategory extends DatabaseObject implements ITitledObject
      * Returns createdTimestamp
      * @return int
      */
-    public function getCreatedTimestamp()
+    public function getCreatedTimestamp(): int
     {
         return $this->creationDate;
     }
