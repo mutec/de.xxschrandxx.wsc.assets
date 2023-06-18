@@ -10,6 +10,8 @@ use wcf\data\DatabaseObject;
 use wcf\data\ITitledObject;
 use wcf\data\user\User;
 use wcf\data\user\UserProfile;
+use wcf\system\cache\runtime\UserProfileRuntimeCache;
+use wcf\system\cache\runtime\UserRuntimeCache;
 
 /**
  * @property    int         $assetID
@@ -26,6 +28,10 @@ use wcf\data\user\UserProfile;
  */
 class Asset extends DatabaseObject implements ITitledObject
 {
+    protected ?AssetLocation $location;
+
+    protected ?AssetCategory $category;
+
     /**
      * Returns title
      * @return string
@@ -91,7 +97,11 @@ class Asset extends DatabaseObject implements ITitledObject
      */
     public function getLocation(): ?AssetLocation
     {
-        return new AssetLocation($this->getLocationID());
+        if (!isset($this->location)) {
+            $this->location = $this->locationID ? new AssetLocation($this->locationID) : null;
+        }
+
+        return $this->location;
     }
 
     /**
@@ -114,7 +124,7 @@ class Asset extends DatabaseObject implements ITitledObject
      */
     public function getUser(): ?User
     {
-        return new User($this->getUserID());
+        return UserRuntimeCache::getInstance()->getObject($this->getUserID());
     }
 
     /**
@@ -123,7 +133,7 @@ class Asset extends DatabaseObject implements ITitledObject
      */
     public function getUserProfile(): ?UserProfile
     {
-        return new UserProfile($this->getUser());
+        return UserProfileRuntimeCache::getInstance()->getObject($this->getUserID());
     }
 
     /**
@@ -141,7 +151,11 @@ class Asset extends DatabaseObject implements ITitledObject
      */
     public function getCategory(): AssetCategory
     {
-        return new AssetCategory($this->getCategoryID());
+        if (!isset($this->category)) {
+            $this->category = new AssetCategory($this->getCategoryID());
+        }
+
+        return $this->category;
     }
 
     /**
