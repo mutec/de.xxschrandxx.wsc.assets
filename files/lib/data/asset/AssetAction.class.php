@@ -61,11 +61,11 @@ class AssetAction extends AbstractDatabaseObjectAction
         foreach ($this->getObjects() as $object) {
             if ($object->canBeBorrowed() && !$this->parameters['data']['canBeBorrowed']) {
                 $object->update([
-                    'borrowed' => 0,
+                    'isBorrowed' => 0,
                     'userID' => null,
                     'lastModifiedDate' => TIME_NOW,
                 ]);
-            } elseif ($object->isBorrowed() && !$this->parameters['data']['borrowed']) {
+            } elseif ($object->isBorrowed() && !$this->parameters['data']['isBorrowed']) {
                 $object->update([
                     'userID' => null,
                     'lastModifiedDate' => TIME_NOW,

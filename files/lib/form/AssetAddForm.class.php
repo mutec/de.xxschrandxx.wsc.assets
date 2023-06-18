@@ -180,7 +180,7 @@ class AssetAddForm extends AbstractFormBuilderForm
                         ->required(),
                     BooleanFormField::create('canBeBorrowed')
                         ->label('wcf.form.asset.field.canBeBorrowed'),
-                    BooleanFormField::create('borrowed')
+                    BooleanFormField::create('isBorrowed')
                         ->label('wcf.form.asset.field.borrowed')
                         ->addDependency(
                             NonEmptyFormFieldDependency::create('canBeBorrowed')
@@ -190,8 +190,8 @@ class AssetAddForm extends AbstractFormBuilderForm
                         ->label('wcf.form.asset.field.userID')
                         ->options($userOptions, true, false)
                         ->addDependency(
-                            NonEmptyFormFieldDependency::create('borrowed')
-                                ->fieldId('borrowed')
+                            NonEmptyFormFieldDependency::create('isBorrowed')
+                                ->fieldId('isBorrowed')
                         )
                         ->addDependency(
                             NonEmptyFormFieldDependency::create('canBeBorrowed')
