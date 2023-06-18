@@ -78,8 +78,8 @@ class AssetListPage extends SortablePage
 
         $parameters = [];
 
-        if (isset($_REQUEST['searchBorrowed'])) {
-            $this->searchBorrowed = \intval($_REQUEST['searchBorrowed']);
+        if (isset($_REQUEST['searchBorrowed']) && \is_numeric($_REQUEST['searchBorrowed'])) {
+            $this->searchBorrowed = (int)$_REQUEST['searchBorrowed'];
         }
 
         if ($this->searchBorrowed) {
