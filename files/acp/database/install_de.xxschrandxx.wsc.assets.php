@@ -12,12 +12,13 @@ use wcf\system\database\table\index\DatabaseTableIndex;
 use wcf\system\database\table\index\DatabaseTablePrimaryIndex;
 
 return [
-    DatabaseTable::create('assets1_assets')
+    DatabaseTable::create('assets1_asset')
         ->columns([
             ObjectIdDatabaseTableColumn::create('assetID'),
             NotNullInt10DatabaseTableColumn::create('categoryID'),
             VarcharDatabaseTableColumn::create('title')
-                ->length(20),
+                ->length(20)
+                ->notNull(),
             VarcharDatabaseTableColumn::create('legacyID')
                 ->length(50),
             NotNullInt10DatabaseTableColumn::create('amount'),
@@ -57,7 +58,8 @@ return [
         ->columns([
             ObjectIdDatabaseTableColumn::create('categoryID'),
             VarcharDatabaseTableColumn::create('title')
-                ->length(20),
+                ->length(20)
+                ->notNull(),
             TextDatabaseTableColumn::create('description'),
             NotNullInt10DatabaseTableColumn::create('creationDate')
         ])
