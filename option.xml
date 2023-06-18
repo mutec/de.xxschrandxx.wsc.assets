@@ -3,9 +3,7 @@
 	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.woltlab.com https://www.woltlab.com/XSD/5.5/option.xsd">
 	<import>
 		<categories>
-			<category name="assets">
-				<parent/>
-			</category>
+			<category name="assets" />
 			<category name="assets_general">
 				<parent>assets</parent>
 			</category>

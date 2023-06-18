@@ -10,7 +10,7 @@
 			<li>
 				<a href="{link controller='AssetLocationAdd'}{/link}" class="button">
 					<span class="icon icon16 fa-plus"></span>
-				<span>{lang}wcf.acp.menu.link.application.assets.asset.location.add{/lang}</span>
+					<span>{lang}wcf.acp.menu.link.application.assets.asset.location.add{/lang}</span>
 				</a>
 			</li>
 			{event name='contentHeaderNavigation'}

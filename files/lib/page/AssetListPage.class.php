@@ -28,7 +28,13 @@ class AssetListPage extends SortablePage
     /**
      * @inheritDoc
      */
-    public $validSortFields = ['assetID', 'categoryID', 'legacyID', 'lastModifiedDate', 'creationDate'];
+    public $validSortFields = [
+        'assetID',
+        'categoryID',
+        'legacyID',
+        'lastModifiedDate',
+        'creationDate',
+    ];
 
     /**
      * @inheritDoc

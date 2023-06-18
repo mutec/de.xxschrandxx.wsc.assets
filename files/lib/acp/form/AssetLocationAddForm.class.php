@@ -48,8 +48,8 @@ class AssetLocationAddForm extends AbstractFormBuilderForm
                     MultilineTextFormField::create('address')
                         ->label('wcf.acp.form.assetLocation.field.address')
                         ->description('wcf.acp.form.assetLocation.field.address.description')
-                        ->required()
-                ])
+                        ->required(),
+                ]),
         );
     }
 }

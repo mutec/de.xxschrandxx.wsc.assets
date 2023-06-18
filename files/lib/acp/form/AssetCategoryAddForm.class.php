@@ -46,8 +46,8 @@ class AssetCategoryAddForm extends AbstractFormBuilderForm
                         ->maximumLength(20)
                         ->required(),
                     TextFormField::create('description')
-                        ->label('wcf.global.description')
-                ])
+                        ->label('wcf.global.description'),
+                ]),
         );
     }
 }

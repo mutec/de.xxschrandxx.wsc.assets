@@ -86,6 +86,7 @@ class Asset extends DatabaseObject
         if ($this->isBorrowed()) {
             throw new InvalidArgumentException('Asset is borrowed.');
         }
+
         return $this->locationID;
     }
 
@@ -109,6 +110,7 @@ class Asset extends DatabaseObject
         if (!$this->isBorrowed()) {
             throw new InvalidArgumentException('Asset is borrowed.');
         }
+
         return $this->userID;
     }
 

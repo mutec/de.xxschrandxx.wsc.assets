@@ -54,15 +54,19 @@ class AssetAddForm extends AbstractFormBuilderForm
             0 => [
                 'label' => WCF::getLanguage()->get('wcf.label.none'),
                 'value' => 0,
-                'depth' => 0
-            ]
+                'depth' => 0,
+            ],
         ];
-        $assetCategoryList = new AssetCategoryList();
-        $assetCategoryList->readObjects();
-        /** @var \assets\data\asset\category\AssetCategory[] */
-        $assetCatefories = $assetCategoryList->getObjects();
-        foreach ($assetCatefories as $assetCategory) {
-            \array_push($categories, ['label' => $assetCategory->getTitle(), 'value' => $assetCategory->getObjectID(), 'depth' => 0]);
+
+        $categoryList = new AssetCategoryList();
+        $categoryList->readObjects();
+
+        foreach ($categoryList->getObjects() as $assetCategory) {
+            \array_push($categories, [
+                'label' => $assetCategory->getTitle(),
+                'value' => $assetCategory->getObjectID(),
+                'depth' => 0,
+            ]);
         }
 
         // Read Users
@@ -70,15 +74,19 @@ class AssetAddForm extends AbstractFormBuilderForm
             0 => [
                 'label' => WCF::getLanguage()->get('wcf.label.none'),
                 'value' => 0,
-                'depth' => 0
-            ]
+                'depth' => 0,
+            ],
         ];
+
         $userList = new UserList();
         $userList->readObjects();
-        /** @var \wcf\data\user\User[] */
-        $users = $userList->getObjects();
-        foreach ($users as $user) {
-            \array_push($userOptions, ['label' => $user->getTitle(), 'value' => $user->getObjectID(), 'depth' => 0]);
+
+        foreach ($userList->getObjects() as $user) {
+            \array_push($userOptions, [
+                'label' => $user->getTitle(),
+                'value' => $user->getObjectID(),
+                'depth' => 0,
+            ]);
         }
 
         // Read Locations
@@ -86,15 +94,19 @@ class AssetAddForm extends AbstractFormBuilderForm
             0 => [
                 'label' => WCF::getLanguage()->get('wcf.label.none'),
                 'value' => 0,
-                'depth' => 0
-            ]
+                'depth' => 0,
+            ],
         ];
+
         $assetLocationList = new AssetLocationList();
         $assetLocationList->readObjects();
-        /** @var \assets\data\asset\location\AssetLocation[] */
-        $assetLocations = $assetLocationList->getObjects();
-        foreach ($assetLocations as $assetLocation) {
-            \array_push($locations, ['label' => $assetLocation->getTitle(), 'value' => $assetLocation->getObjectID(), 'depth' => 0]);
+
+        foreach ($assetLocationList->getObjects() as $assetLocation) {
+            \array_push($locations, [
+                'label' => $assetLocation->getTitle(),
+                'value' => $assetLocation->getObjectID(),
+                'depth' => 0,
+            ]);
         }
 
         $canBeBorrowedFormField = BooleanFormField::create('canBeBorrowed')

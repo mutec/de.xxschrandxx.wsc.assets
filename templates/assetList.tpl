@@ -10,9 +10,9 @@
 			<li>
 				<a href="{link controller='AssetAdd'}{/link}" class="button">
 					<span class="icon icon16 fa-plus"></span>
-				{* TODO
-				<span>{lang}wcf.menu.link.application.assets.asset.add{/lang}</span>
-				*}
+					{* TODO
+					<span>{lang}wcf.menu.link.application.assets.asset.add{/lang}</span>
+					*}
 				</a>
 			</li>
 			{event name='contentHeaderNavigation'}

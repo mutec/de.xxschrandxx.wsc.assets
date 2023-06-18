@@ -53,26 +53,22 @@ class AssetAction extends AbstractDatabaseObjectAction
     {
         parent::update();
 
-        if (isset($this->parameters['data'])) {
-            foreach ($this->getObjects() as $object) {
-                /** @var \assets\data\asset\Asset */
-                $item = $object->getDecoratedObject();
-                if ($item->canBeBorrowed() && !$this->parameters['data']['canBeBorrowed']) {
-                    $object->update([
-                        'borrowed' => 0,
-                        'userID' => null,
-                        'lastModifiedDate' => TIME_NOW
-                    ]);
-                } else if ($item->isBorrowed() && !$this->parameters['data']['borrowed']) {
-                    $object->update([
-                        'userID' => null,
-                        'lastModifiedDate' => TIME_NOW
-                    ]);
-                } else {
-                    $object->update([
-                        'lastModifiedDate' => TIME_NOW
-                    ]);
-                }
+        foreach ($this->getObjects() as $object) {
+            if ($object->canBeBorrowed() && !$this->parameters['data']['canBeBorrowed']) {
+                $object->update([
+                    'borrowed' => 0,
+                    'userID' => null,
+                    'lastModifiedDate' => TIME_NOW,
+                ]);
+            } elseif ($object->isBorrowed() && !$this->parameters['data']['borrowed']) {
+                $object->update([
+                    'userID' => null,
+                    'lastModifiedDate' => TIME_NOW,
+                ]);
+            } else {
+                $object->update([
+                    'lastModifiedDate' => TIME_NOW,
+                ]);
             }
         }
     }
