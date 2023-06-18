@@ -19,12 +19,11 @@ class AssetEditForm extends AssetAddForm
     {
         parent::readParameters();
 
-        $assetID = 0;
-        if (isset($_REQUEST['id'])) {
-            $assetID = (int)$_REQUEST['id'];
+        if (isset($_REQUEST['id']) && \is_numeric($_REQUEST['id'])) {
+            $this->formObject = new Asset((int)$_REQUEST['id']);
         }
-        $this->formObject = new Asset($assetID);
-        if (!$this->formObject->assetID) {
+
+        if (!$this->formObject->getObjectID()) {
             throw new IllegalLinkException();
         }
     }

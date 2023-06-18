@@ -19,12 +19,11 @@ class ACPAssetCategoryEditForm extends AssetCategoryAddForm
     {
         parent::readParameters();
 
-        $categoryID = 0;
-        if (isset($_REQUEST['id'])) {
-            $categoryID = (int)$_REQUEST['id'];
+        if (isset($_REQUEST['id']) && \is_numeric($_REQUEST['id'])) {
+            $this->formObject = new AssetCategory((int)$_REQUEST['id']);
         }
-        $this->formObject = new AssetCategory($categoryID);
-        if (!$this->formObject->categoryID) {
+
+        if (!$this->formObject->getObjectID()) {
             throw new IllegalLinkException();
         }
     }
