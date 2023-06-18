@@ -5,6 +5,9 @@ namespace assets\acp\form;
 use assets\data\asset\location\AssetLocation;
 use wcf\system\exception\IllegalLinkException;
 
+/**
+ * @property    AssetLocation|null  $formObject
+ */
 class AssetLocationEditForm extends AssetLocationAddForm
 {
     /**

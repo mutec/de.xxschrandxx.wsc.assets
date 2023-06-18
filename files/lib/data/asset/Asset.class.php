@@ -7,26 +7,30 @@ use assets\data\asset\location\AssetLocation;
 use DateTime;
 use InvalidArgumentException;
 use wcf\data\DatabaseObject;
+use wcf\data\ITitledObject;
 use wcf\data\user\User;
 use wcf\data\user\UserProfile;
 
-class Asset extends DatabaseObject
+/**
+ * @property    int         $assetID
+ * @property    int         $categoryID
+ * @property    string      $title
+ * @property    string|null $legacyID
+ * @property    int         $amount
+ * @property    int         $canBeBorrowed
+ * @property    int         $borrowed
+ * @property    int|null    $locationID
+ * @property    int|null    $userID
+ * @property    int         $lastModifiedDate
+ * @property    int         $creationDate
+ */
+class Asset extends DatabaseObject implements ITitledObject
 {
     /**
-     * @inheritDoc
-     */
-    protected static $databaseTableName = 'assets';
-
-    /**
-     * @inheritDoc
-     */
-    protected static $databaseTableIndexName = 'assetID';
-
-    /**
      * Returns title
-     * @return ?string
+     * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -60,7 +64,7 @@ class Asset extends DatabaseObject
 
     /**
      * Returns weather can be borrowed
-     * @return ?bool
+     * @return bool
      */
     public function canBeBorrowed()
     {
@@ -69,7 +73,7 @@ class Asset extends DatabaseObject
 
     /**
      * Returns weather borroewd
-     * @return ?bool
+     * @return bool
      */
     public function isBorrowed()
     {
@@ -93,7 +97,6 @@ class Asset extends DatabaseObject
     /**
      * Returns AssetLocation
      * @return ?AssetLocation
-     * @throws InvalidArgumentException If the Asset is borrowed
      */
     public function getLocation()
     {
@@ -117,7 +120,6 @@ class Asset extends DatabaseObject
     /**
      * Returns User
      * @return ?User
-     * @throws InvalidArgumentException If the Asset is not borrowed
      */
     public function getUser()
     {
@@ -127,7 +129,6 @@ class Asset extends DatabaseObject
     /**
      * Returns user Profile
      * @return ?UserProfile
-     * @throws InvalidArgumentException If the Asset is not borrowed
      */
     public function getUserProfile()
     {
@@ -136,7 +137,7 @@ class Asset extends DatabaseObject
 
     /**
      * Returns categoryID
-     * @return ?int
+     * @return int
      */
     public function getCategoryID()
     {
@@ -154,7 +155,7 @@ class Asset extends DatabaseObject
 
     /**
      * Returns lastModifiedTimestamp
-     * @return ?int
+     * @return int
      */
     public function getLastModifiedTimestamp()
     {
@@ -172,7 +173,7 @@ class Asset extends DatabaseObject
 
     /**
      * Returns createdTimestamp
-     * @return ?int
+     * @return int
      */
     public function getCreatedTimestamp()
     {

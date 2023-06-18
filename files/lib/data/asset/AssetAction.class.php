@@ -4,6 +4,11 @@ namespace assets\data\asset;
 
 use wcf\data\AbstractDatabaseObjectAction;
 
+/**
+ * @property    AssetEditor[]   $objects
+ * @method      AssetEditor[]   getObjects()
+ * @method      AssetEditor     getSingleObject()
+ */
 class AssetAction extends AbstractDatabaseObjectAction
 {
     /**

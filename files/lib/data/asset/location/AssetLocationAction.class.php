@@ -4,6 +4,11 @@ namespace assets\data\asset\location;
 
 use wcf\data\AbstractDatabaseObjectAction;
 
+/**
+ * @property    AssetLocationEditor[]   $objects
+ * @method      AssetLocationEditor[]   getObjects()
+ * @method      AssetLocationEditor     getSingleObject()
+ */
 class AssetLocationAction extends AbstractDatabaseObjectAction
 {
     /**

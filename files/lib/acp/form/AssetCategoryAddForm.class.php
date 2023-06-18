@@ -2,12 +2,16 @@
 
 namespace assets\acp\form;
 
+use assets\data\asset\category\AssetCategoryAction;
 use wcf\form\AbstractFormBuilderForm;
 use wcf\system\form\builder\container\FormContainer;
 use wcf\system\form\builder\field\TextFormField;
 use wcf\system\form\builder\field\TitleFormField;
 use wcf\system\WCF;
 
+/**
+ * @property    AssetCategoryAction $objectAction
+ */
 class AssetCategoryAddForm extends AbstractFormBuilderForm
 {
     /**

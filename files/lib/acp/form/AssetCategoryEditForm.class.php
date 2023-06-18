@@ -5,6 +5,9 @@ namespace assets\acp\form;
 use assets\data\asset\category\AssetCategory;
 use wcf\system\exception\IllegalLinkException;
 
+/**
+ * @property    AssetCategory|null  $formObject
+ */
 class AssetCategoryEditForm extends AssetCategoryAddForm
 {
     /**

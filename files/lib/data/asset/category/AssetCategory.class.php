@@ -4,8 +4,15 @@ namespace assets\data\asset\category;
 
 use DateTime;
 use wcf\data\DatabaseObject;
+use wcf\data\ITitledObject;
 
-class AssetCategory extends DatabaseObject
+/**
+ * @property-read   int         $categoryID
+ * @property-read   string      $title
+ * @property-read   string|null $description
+ * @property-read   int         $creationDate
+ */
+class AssetCategory extends DatabaseObject implements ITitledObject
 {
     /**
      * @inheritDoc
@@ -19,16 +26,16 @@ class AssetCategory extends DatabaseObject
 
     /**
      * Returns title
-     * @return ?string
+     * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
     /**
      * Returns createdTimestamp
-     * @return ?int
+     * @return int
      */
     public function getCreatedTimestamp()
     {

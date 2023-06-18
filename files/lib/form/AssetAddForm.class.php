@@ -19,6 +19,9 @@ use wcf\system\form\builder\field\validation\FormFieldValidationError;
 use wcf\system\form\builder\field\validation\FormFieldValidator;
 use wcf\system\WCF;
 
+/**
+ * @property    AssetAction $objectAction
+ */
 class AssetAddForm extends AbstractFormBuilderForm
 {
     /**

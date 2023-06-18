@@ -2,12 +2,15 @@
 
 namespace assets\acp\form;
 
-use assets\data\assets\AssetLocationAction;
+use assets\data\asset\location\AssetLocationAction;
 use wcf\form\AbstractFormBuilderForm;
 use wcf\system\form\builder\container\FormContainer;
 use wcf\system\form\builder\field\MultilineTextFormField;
 use wcf\system\form\builder\field\TitleFormField;
 
+/**
+ * @property    AssetLocationAction $objectAction
+ */
 class AssetLocationAddForm extends AbstractFormBuilderForm
 {
     /**

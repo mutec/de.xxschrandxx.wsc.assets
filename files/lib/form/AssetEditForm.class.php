@@ -5,6 +5,9 @@ namespace assets\form;
 use assets\data\asset\Asset;
 use wcf\system\exception\IllegalLinkException;
 
+/**
+ * @property    Asset|null  $formObject
+ */
 class AssetEditForm extends AssetAddForm
 {
     /**

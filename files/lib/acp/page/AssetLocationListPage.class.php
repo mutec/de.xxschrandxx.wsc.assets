@@ -6,6 +6,9 @@ use assets\data\asset\location\AssetLocation;
 use assets\data\asset\location\AssetLocationList;
 use wcf\page\MultipleLinkPage;
 
+/**
+ * @property    AssetLocationList   $objectList
+ */
 class AssetLocationListPage extends MultipleLinkPage
 {
     /**
