@@ -8,7 +8,7 @@
 	<nav class="contentHeaderNavigation">
 		<ul>
 			<li>
-				<a href="{link controller='AssetAdd'}{/link}" class="button">
+				<a href="{link controller='AssetAdd' application='assets'}{/link}" class="button">
 					<span class="icon icon16 fa-plus"></span>
 					{* TODO
 					<span>{lang}wcf.menu.link.application.assets.asset.add{/lang}</span>
@@ -23,7 +23,7 @@
 {hascontent}
 <div class="paginationTop">
 	{content}
-		{pages print=true assign=pagesLinks controller="AssetList" link="pageNo=%d"}
+		{pages print=true assign=pagesLinks controller="AssetList" application="assets" link="pageNo=%d"}
 	{/content}
 </div>
 {/hascontent}
@@ -45,7 +45,7 @@
 				{foreach from=$objects item=object}
 					<tr class="jsObjectActionObject" data-object-id="{@$object->getObjectID()}">
 						<td class="columnIcon">
-							<a href="{link controller='AssetEdit' id=$object->getObjectID()}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip">
+							<a href="{link controller='AssetEdit' application='assets' id=$object->getObjectID()}{/link}" title="{lang}wcf.global.button.edit{/lang}" class="jsTooltip">
 								<span class="icon icon16 fa-pencil"></span>
 							</a>
 							{objectAction action="delete" objectTitle=$object->getTitle()}
