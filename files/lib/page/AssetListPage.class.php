@@ -86,7 +86,7 @@ class AssetListPage extends SortablePage
             $parameters['searchBorrowed'] = $this->searchBorrowed;
         }
 
-        $this->canonicalURL = LinkHandler::getInstance()->getLink($this::class, $parameters);
+        $this->canonicalURL = LinkHandler::getInstance()->getControllerLink($this::class, $parameters);
     }
 
     /**
