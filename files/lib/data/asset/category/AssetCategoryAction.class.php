@@ -41,8 +41,8 @@ class AssetCategoryAction extends AbstractDatabaseObjectAction
      */
     public function create(): AssetCategory
     {
-        if (!isset($this->parameters['data']['creationDate'])) {
-            $this->parameters['data']['creationDate'] = TIME_NOW;
+        if (!isset($this->parameters['data']['time'])) {
+            $this->parameters['data']['time'] = TIME_NOW;
         }
 
         $object = parent::create();

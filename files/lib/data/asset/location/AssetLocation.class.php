@@ -41,7 +41,7 @@ class AssetLocation extends DatabaseObject
      */
     public function getCreatedTimestamp()
     {
-        return $this->creationDate;
+        return $this->time;
     }
 
     /**

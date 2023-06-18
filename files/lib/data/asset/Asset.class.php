@@ -24,7 +24,7 @@ use wcf\system\cache\runtime\UserRuntimeCache;
  * @property    int|null    $locationID
  * @property    int|null    $userID
  * @property    int         $lastModifiedDate
- * @property    int         $creationDate
+ * @property    int         time
  */
 class Asset extends DatabaseObject implements ITitledObject
 {
@@ -182,7 +182,7 @@ class Asset extends DatabaseObject implements ITitledObject
      */
     public function getCreatedTimestamp(): int
     {
-        return $this->creationDate;
+        return $this->time;
     }
 
     /**

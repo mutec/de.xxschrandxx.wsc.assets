@@ -27,7 +27,7 @@ return [
             IntDatabaseTableColumn::create('locationID'),
             IntDatabaseTableColumn::create('userID'),
             NotNullInt10DatabaseTableColumn::create('lastModifiedDate'),
-            NotNullInt10DatabaseTableColumn::create('creationDate')
+            NotNullInt10DatabaseTableColumn::create('time')
         ])
         ->indices([
             DatabaseTablePrimaryIndex::create()
@@ -61,7 +61,7 @@ return [
                 ->length(20)
                 ->notNull(),
             TextDatabaseTableColumn::create('description'),
-            NotNullInt10DatabaseTableColumn::create('creationDate')
+            NotNullInt10DatabaseTableColumn::create('time')
         ])
         ->indices([
             DatabaseTablePrimaryIndex::create()
@@ -74,7 +74,7 @@ return [
                 ->length(20),
             TextDatabaseTableColumn::create('address')
                 ->notNull(),
-            NotNullInt10DatabaseTableColumn::create('creationDate')
+            NotNullInt10DatabaseTableColumn::create('time')
         ])
         ->indices([
             DatabaseTablePrimaryIndex::create()

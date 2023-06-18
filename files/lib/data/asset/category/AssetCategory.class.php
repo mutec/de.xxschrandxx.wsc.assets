@@ -10,7 +10,7 @@ use wcf\data\ITitledObject;
  * @property-read   int         $categoryID
  * @property-read   string      $title
  * @property-read   string|null $description
- * @property-read   int         $creationDate
+ * @property-read   int         time
  */
 class AssetCategory extends DatabaseObject implements ITitledObject
 {
@@ -34,7 +34,7 @@ class AssetCategory extends DatabaseObject implements ITitledObject
      */
     public function getCreatedTimestamp(): int
     {
-        return $this->creationDate;
+        return $this->time;
     }
 
     /**

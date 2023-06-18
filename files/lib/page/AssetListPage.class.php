@@ -38,7 +38,7 @@ class AssetListPage extends SortablePage
         'categoryID',
         'legacyID',
         'lastModifiedDate',
-        'creationDate',
+        'time',
     ];
 
     /**
