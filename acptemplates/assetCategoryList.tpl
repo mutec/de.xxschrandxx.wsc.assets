@@ -31,8 +31,7 @@
 		<table class="table jsObjectActionContainer" data-object-action-class-name="assets\data\assets\category\AssetCategoryAction">
 			<thead>
 				<tr>
-					<th></th>
-					<th>{lang}wcf.global.objectID{/lang}</th>
+					<th colspan="2">{lang}wcf.global.objectID{/lang}</th>
 					<th>{lang}wcf.global.title{/lang}</th>
 					<th>{lang}wcf.acp.page.assetCategoryList.creationDate{/lang}</th>
 				</tr>

@@ -33,8 +33,7 @@
 		<table class="table jsObjectActionContainer" data-object-action-class-name="assets\data\assets\AssetAction">
 			<thead>
 				<tr>
-					<th></th>
-					<th>{lang}wcf.global.objectID{/lang}</th>
+					<th colspan="2">{lang}wcf.global.objectID{/lang}</th>
 					<th>{lang}wcf.global.title{/lang}</th>
 					<th>{lang}wcf.page.assetList.category{/lang}</th>
 					<th>{lang}wcf.page.assetList.amount{/lang}</th>
