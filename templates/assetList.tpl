@@ -23,7 +23,7 @@
 {hascontent}
 <div class="paginationTop">
 	{content}
-		{pages print=true assign=pagesLinks controller="{\assets\page\AssetListPage::class}" link="pageNo=%d"}
+		{pages print=true assign=pagesLinks controller="AssetList" link="pageNo=%d"}
 	{/content}
 </div>
 {/hascontent}
