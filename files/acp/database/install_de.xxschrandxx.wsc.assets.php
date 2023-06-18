@@ -27,14 +27,14 @@ return [
             IntDatabaseTableColumn::create('locationID'),
             IntDatabaseTableColumn::create('userID'),
             NotNullInt10DatabaseTableColumn::create('lastModifiedDate'),
-            NotNullInt10DatabaseTableColumn::create('time')
+            NotNullInt10DatabaseTableColumn::create('time'),
         ])
         ->indices([
             DatabaseTablePrimaryIndex::create()
                 ->columns(['assetID']),
                 DatabaseTableIndex::create('legacyID')
                     ->type(DatabaseTableIndex::UNIQUE_TYPE)
-                    ->columns(['legacyID'])
+                    ->columns(['legacyID']),
 
         ])
         ->foreignKeys([
@@ -52,7 +52,7 @@ return [
                 ->columns(['userID'])
                 ->onDelete('SET NULL')
                 ->referencedColumns(['userID'])
-                ->referencedTable('wcf1_user')
+                ->referencedTable('wcf1_user'),
         ]),
     DatabaseTable::create('assets1_category')
         ->columns([
@@ -61,11 +61,11 @@ return [
                 ->length(20)
                 ->notNull(),
             TextDatabaseTableColumn::create('description'),
-            NotNullInt10DatabaseTableColumn::create('time')
+            NotNullInt10DatabaseTableColumn::create('time'),
         ])
         ->indices([
             DatabaseTablePrimaryIndex::create()
-                ->columns(['categoryID'])
+                ->columns(['categoryID']),
         ]),
     DatabaseTable::create('assets1_location')
         ->columns([
@@ -75,10 +75,10 @@ return [
                 ->notNull(),
             TextDatabaseTableColumn::create('address')
                 ->notNull(),
-            NotNullInt10DatabaseTableColumn::create('time')
+            NotNullInt10DatabaseTableColumn::create('time'),
         ])
         ->indices([
             DatabaseTablePrimaryIndex::create()
-                ->columns(['locationID'])
-        ])
+                ->columns(['locationID']),
+        ]),
 ];
