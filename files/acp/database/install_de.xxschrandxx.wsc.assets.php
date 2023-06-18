@@ -23,7 +23,7 @@ return [
                 ->length(50),
             NotNullInt10DatabaseTableColumn::create('amount'),
             DefaultFalseBooleanDatabaseTableColumn::create('canBeBorrowed'),
-            DefaultFalseBooleanDatabaseTableColumn::create('borrowed'),
+            DefaultFalseBooleanDatabaseTableColumn::create('isBorrowed'),
             IntDatabaseTableColumn::create('locationID'),
             IntDatabaseTableColumn::create('userID'),
             NotNullInt10DatabaseTableColumn::create('lastModifiedDate'),

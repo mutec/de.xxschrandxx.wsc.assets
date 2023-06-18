@@ -20,7 +20,7 @@ use wcf\system\cache\runtime\UserRuntimeCache;
  * @property    string|null $legacyID
  * @property    int         $amount
  * @property    int         $canBeBorrowed
- * @property    int         $borrowed
+ * @property    int         $isBorrowed
  * @property    int|null    $locationID
  * @property    int|null    $userID
  * @property    int         $lastModifiedDate
@@ -74,7 +74,7 @@ class Asset extends DatabaseObject implements ITitledObject
      */
     public function isBorrowed(): bool
     {
-        return (bool)$this->borrowed;
+        return (bool)$this->isBorrowed;
     }
 
     /**
