@@ -23,6 +23,11 @@ class AssetListPage extends SortablePage
     /**
      * @inheritDoc
      */
+    public $objectListClassName = AssetList::class;
+
+    /**
+     * @inheritDoc
+     */
     public $itemsPerPage = 100;
 
     /**
@@ -88,14 +93,6 @@ class AssetListPage extends SortablePage
         }
 
         $this->canonicalURL = LinkHandler::getInstance()->getLink($this::class, $parameters);
-    }
-
-    /**
-     * @inheritDoc
-     */
-    protected function initObjectList()
-    {
-        $this->objectList = new AssetList();
     }
 
     /**
