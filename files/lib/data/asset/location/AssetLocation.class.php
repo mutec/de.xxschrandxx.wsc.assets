@@ -4,8 +4,15 @@ namespace assets\data\asset\location;
 
 use DateTimeImmutable;
 use wcf\data\DatabaseObject;
+use wcf\data\ITitledObject;
 
-class AssetLocation extends DatabaseObject
+/**
+ * @property    int     $locationID
+ * @property    string  $title
+ * @property    string  $address
+ * @property    int     $time
+ */
+class AssetLocation extends DatabaseObject implements ITitledObject
 {
     /**
      * @inheritDoc
@@ -13,33 +20,28 @@ class AssetLocation extends DatabaseObject
     protected static $databaseTableName = 'location';
 
     /**
-     * @inheritDoc
-     */
-    protected static $databaseTableIndexName = 'locationID';
-
-    /**
      * Returns title
-     * @return ?string
+     * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
     /**
      * Returns address
-     * @return ?string
+     * @return string
      */
-    public function getAddress()
+    public function getAddress(): string
     {
         return $this->address;
     }
 
     /**
      * Returns createdTimestamp
-     * @return ?int
+     * @return int
      */
-    public function getCreatedTimestamp()
+    public function getCreatedTimestamp(): int
     {
         return $this->time;
     }

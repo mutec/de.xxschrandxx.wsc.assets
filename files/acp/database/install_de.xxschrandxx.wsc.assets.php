@@ -71,7 +71,8 @@ return [
         ->columns([
             ObjectIdDatabaseTableColumn::create('locationID'),
             VarcharDatabaseTableColumn::create('title')
-                ->length(20),
+                ->length(20)
+                ->notNull(),
             TextDatabaseTableColumn::create('address')
                 ->notNull(),
             NotNullInt10DatabaseTableColumn::create('time')
