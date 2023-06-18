@@ -1,3 +1,3 @@
 <?php
 
-define('ASSETS_LEGACYID_ENABLED', true);
+const ASSETS_LEGACYID_ENABLED = true;
