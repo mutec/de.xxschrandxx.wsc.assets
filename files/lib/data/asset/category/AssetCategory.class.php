@@ -2,7 +2,7 @@
 
 namespace assets\data\asset\category;
 
-use DateTime;
+use DateTimeImmutable;
 use wcf\data\DatabaseObject;
 use wcf\data\ITitledObject;
 
@@ -44,10 +44,10 @@ class AssetCategory extends DatabaseObject implements ITitledObject
 
     /**
      * Returns creation date
-     * @return ?DateTime
+     * @return DateTimeImmutable
      */
-    public function getCreatdDate()
+    public function getCreatedDate(): DateTimeImmutable
     {
-        return new DateTime($this->getCreatedTimestamp());
+        return new DateTimeImmutable($this->getCreatedTimestamp());
     }
 }

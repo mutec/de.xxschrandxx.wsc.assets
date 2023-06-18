@@ -4,7 +4,7 @@ namespace assets\data\asset;
 
 use assets\data\asset\category\AssetCategory;
 use assets\data\asset\location\AssetLocation;
-use DateTime;
+use DateTimeImmutable;
 use InvalidArgumentException;
 use wcf\data\DatabaseObject;
 use wcf\data\ITitledObject;
@@ -164,11 +164,11 @@ class Asset extends DatabaseObject implements ITitledObject
 
     /**
      * Returns last modified date
-     * @return ?DateTime
+     * @return DateTimeImmutable
      */
-    public function getLastModified()
+    public function getLastModified(): DateTimeImmutable
     {
-        return new DateTime($this->getCreatedTimestamp());
+        return new DateTimeImmutable($this->getLastModifiedTimestamp());
     }
 
     /**
@@ -182,10 +182,10 @@ class Asset extends DatabaseObject implements ITitledObject
 
     /**
      * Returns creation date
-     * @return ?DateTime
+     * @return DateTimeImmutable
      */
-    public function getCreatdDate()
+    public function getCreatedDate(): DateTimeImmutable
     {
-        return new DateTime($this->getCreatedTimestamp());
+        return new DateTimeImmutable($this->getCreatedTimestamp());
     }
 }
