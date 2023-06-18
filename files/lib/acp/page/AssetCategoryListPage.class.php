@@ -29,9 +29,10 @@ class AssetCategoryListPage extends MultipleLinkPage
     /**
      * @inheritDoc
      */
-    public function __run()
+    protected function initObjectList()
     {
         $this->sortField = AssetCategory::getDatabaseTableIndexName();
-        parent::__run();
+
+        parent::initObjectList();
     }
 }

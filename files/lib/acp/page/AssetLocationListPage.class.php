@@ -29,9 +29,10 @@ class AssetLocationListPage extends MultipleLinkPage
     /**
      * @inheritDoc
      */
-    public function __run()
+    protected function initObjectList()
     {
         $this->sortField = AssetLocation::getDatabaseTableIndexName();
-        parent::__run();
+
+        parent::initObjectList();
     }
 }
