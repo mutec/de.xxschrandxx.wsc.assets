@@ -17,24 +17,27 @@
 	</authorinformation>
 
 	<requiredpackages>
-		<requiredpackage minversion="5.5.0 RC 1">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="5.5.10">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
 
 	<excludedpackages>
-		<excludedpackage version="6.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+		<excludedpackage version="6.0.0 dev 1">com.woltlab.wcf</excludedpackage>
 	</excludedpackages>
 
 	<instructions type="install">
 		<instruction type="acpTemplate"/>
 		<instruction type="template"/>
 		<instruction type="file"/>
+
+		<instruction type="database">acp/database/install_de.xxschrandxx.wsc.assets.php</instruction>
+
 		<instruction type="language"/>
+
+		<instruction type="objectType"/>
+		<instruction type="option"/>
+		<instruction type="userGroupOption"/>
 		<instruction type="acpMenu"/>
 		<instruction type="page" />
 		<instruction type="menuItem" />
-		<instruction type="objectType"/>
-		<instruction type="userGroupOption"/>
-		<instruction type="option"/>
-		<instruction type="database">acp/database/install_de.xxschrandxx.wsc.assets.php</instruction>
 	</instructions>
 </package>
