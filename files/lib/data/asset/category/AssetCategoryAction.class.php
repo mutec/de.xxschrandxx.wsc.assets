@@ -45,6 +45,9 @@ class AssetCategoryAction extends AbstractDatabaseObjectAction
             $this->parameters['data']['creationDate'] = TIME_NOW;
         }
 
-        parent::create();
+        $object = parent::create();
+        \assert($object instanceof AssetCategory);
+
+        return $object;
     }
 }
