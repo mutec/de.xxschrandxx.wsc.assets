@@ -64,12 +64,6 @@ class AssetListPage extends SortablePage
     public $availableLocations = [];
 
     /**
-     * available users
-     * @var array
-     */
-    public $availableUsers = [];
-
-    /**
      * search for borrowed assets
      * @var ?bool
      */
@@ -114,13 +108,5 @@ class AssetListPage extends SortablePage
         // TODO
 
         parent::readData();
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function assignVariables()
-    {
-        parent::assignVariables();
     }
 }

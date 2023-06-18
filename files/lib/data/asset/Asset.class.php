@@ -36,15 +36,6 @@ class Asset extends DatabaseObject implements ITitledObject
     }
 
     /**
-     * Returns description
-     * @return ?string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
      * Returns legacyID
      * @return ?string
      */

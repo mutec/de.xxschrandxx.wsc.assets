@@ -20,11 +20,6 @@ class AssetCategory extends DatabaseObject implements ITitledObject
     protected static $databaseTableName = 'category';
 
     /**
-     * @inheritDoc
-     */
-    protected static $databaseTableIndexName = 'categoryID';
-
-    /**
      * Returns title
      * @return string
      */
